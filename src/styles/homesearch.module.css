@@ -1,0 +1,31 @@
+.searchControls{
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+  margin-top: 12px;
+  margin-right:16px ;
+}
+.search {
+  position:relative;
+  display:inline-block 
+}
+.searchControls button{
+  background:none;
+  border:none;
+  vertical-align: middle 
+}
+.searchControls button:nth-child(2){
+  position:absolute;
+  right:0;
+  top:4px;
+  outline: none;
+}
+.searchControls input{
+  margin-left: 12px;
+  background-color:transparent;
+  border: thin solid var(--color-sub);
+  padding: 8px;
+  border-radius:6px;
+  padding-right:26px;
+  color:var(--color-text )
+}

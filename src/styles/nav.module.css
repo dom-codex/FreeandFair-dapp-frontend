@@ -1,0 +1,28 @@
+.navcontainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.logocont{
+  height:80px;
+  display: flex;
+  align-items: center
+}
+.appname{
+  font-size: 0.75em
+}
+.logocont img{
+  height: 40px;
+  width:40px;
+  border-radius: 50%;
+  border: thin solid #ccc;
+  padding:4px;
+  margin-right: 4px
+}
+.navcontainer button{
+  background-color: var(--color-primary);
+  border:none;
+  padding:8px;
+  border-radius: 4px;
+  color:#fff
+}

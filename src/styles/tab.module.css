@@ -1,0 +1,61 @@
+.general{
+  padding-top:32px;
+  width:90%;
+  margin:auto;
+  
+}
+.general input {
+  width:100%;
+  background-color:var(--color-bg2);
+  border:none;
+  height: 36px;
+  border-radius:6px;
+  color:var(--color-sub2);
+  padding-left:6px
+}
+.general label{
+  font-size:0.7em;
+  color:var(--color-sub2)
+}
+.heading{
+  font-size:0.7em;
+  margin-bottom: 18px;
+  margin-top :12px;
+  color:var(--color-sub);
+  text-align:center
+}
+.countdown{
+  margin-top:32px
+}
+.countdowntimer{
+  display: flex;
+}
+.countdowntimer div {
+  flex:1;
+  text-align: center;
+  background-color:var(--color-bg2);
+  padding:16px;
+  border-radius:6px;
+  margin-right:12px
+  
+}
+.countdowntimer div p:nth-child(2){
+  font-size: 0.65em;
+  color:var(--color-sub)
+}
+.controlbtns{
+  display: flex;
+  width:80%;
+  margin: auto;
+  padding-bottom: 24px
+}
+.controlbtns button{
+  flex:1;
+  height:38px;
+  margin-right:6px;
+  border-radius:6px;
+  border: none
+}
+.controlbtns button:nth-child(1){
+  background-color:var(--color-primary)
+}

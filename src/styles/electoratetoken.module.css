@@ -1,0 +1,107 @@
+ .createdlabel{
+  font-size:0.8em;
+  color:var(--color-sub);
+  margin-right: 8px
+}
+.date{
+  font-size:0.75em;
+  font-style: italic
+}
+.tokenscont {
+  margin-top:26px
+}
+.tokentitle{
+  margin-top:24px
+}
+.tokencard{
+  width:80%;
+  margin:auto;
+  margin-top:32px;
+  margin-bottom: 36px;
+  border-radius:8px;
+  box-shadow: 0px 0px 36px var(--color-sub);
+  padding:52px;
+  padding-left:18px;
+  padding-right:18px;
+  background-image:linear-gradient(270deg,#efefefef,var(--color-bg2))
+}
+.tokenheader{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px
+}
+.tokenheader  p:nth-child(1){
+  color:#ccc;
+  font-size:0.85em
+}
+.tokenheader p:nth-child(2){
+  font-size:0.5em;
+  color:var(--color-sub);
+  font-style: italic
+}
+.tokenbalance {
+  display:flex;
+  align-items: center
+}
+.tokenbalance img{
+  height: 30px;
+  margin-right: 6px;
+  border-radius:8px
+}
+.tokenrequest{
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.tokenrequest label{
+  font-size:0.65em
+}
+.tokenrequest input{
+  height: 42px;
+  background-color:var(--color-bg2);
+  border:none;
+  width:95%;
+  border-radius:4px;
+  color: var(--color-sub2);
+  padding-left: 8px
+}
+.tokenrequest button{
+  padding:8px;
+  width:150px;
+  border:none;
+  margin-top: 12px;
+  border-radius:6px;
+  background-color: var(--color-primary)
+}
+.transfercont{
+  margin-top:36px;
+  margin-bottom:24px
+}
+.line{
+  margin-top:16px;
+  margin-bottom:16px
+}
+.tf-label{
+  margin-bottom: 24px
+}
+.transfercont label{
+  font-size: 0.65em
+}
+.transfercont input{
+  display: block;
+  width:90%;
+  height:42px;
+  background-color: var(--color-bg2);
+  border:none;
+  border-radius:6px;
+  padding-left: 8px;
+  color:#ccc
+}
+.transfercont button{
+  margin-top:18px;
+  width:150px;
+  padding:8px;
+  border:2px solid var(--color-primary);
+  border-radius:6px;
+  background:none;
+  color: var(--color-primary)
+}

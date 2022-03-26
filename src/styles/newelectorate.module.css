@@ -1,0 +1,40 @@
+.electorateauth{
+  background-color:var(--color-bg2);
+  height:200px;
+  padding-top: 12px;
+  padding:24px
+}
+.electorateauth p{
+  color:gray;
+  font-size: 0.7em;
+  text-align: center;
+  margin-bottom:18px
+}
+.electorateauth label{
+  color:#ccc;
+  font-size: 0.65em;
+  padding-left: 8px
+}
+.electorateauth input {
+  width:100%;
+  height:42px;
+  border-radius:6px;
+  background-color:transparent;
+  border:thin solid #ccc;
+  color:#cccc;
+  padding-left: 8px;
+  outline: none 
+}
+.createbtn{
+  margin-top:18px;
+  text-align: center
+}
+.createbtn button{
+  width:150px;
+  height:36px;
+  background:transparent;
+  color:#ccc;
+  border: 1px solid #ccc;
+  outline:none;
+  border-radius:6px
+}

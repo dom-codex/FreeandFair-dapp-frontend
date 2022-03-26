@@ -1,0 +1,15 @@
+.signin{
+  margin-top:18px;
+  text-align: center;
+  padding-bottom: 24px
+}
+
+.signin button{
+  margin-top:14px;
+  background-color: var(--color-primary);
+  border: none;
+  width:50%;
+  border-radius:6px;
+  padding:6px;
+  color:var(--color-text)
+}

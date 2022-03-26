@@ -1,0 +1,55 @@
+.elections{
+  padding-top: 24px;
+}
+.electionlabel{
+  font-size:0.7em;
+  color:var(--color-sub);
+  text-align: center;
+}
+.electiongrid{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 36px;
+  justify-items: center
+}
+.addcont{
+  border: 5px dashed var(--color-bg2);
+  display: block;
+  padding:16px ;
+  border-radius:6px;
+  width:150px;
+  margin:auto;
+
+}
+.addcont div{
+  background-color:var(--color-bg2);
+  height:40px;
+  width:40px;
+  border-radius:50%;
+  display: grid;
+  place-content: center;
+  margin: auto
+}
+.addcont i{
+  color:gray!important 
+}
+.addcont p{
+  font-size:0.5em;
+  color:var(--color-sub);
+  text-align: center;
+  margin-top:8px
+}
+.electionitem{
+  width:150px;
+  border-radius:8px;
+  overflow: hidden
+}
+.electionitem img{
+  width:60px;
+  border-radius:4px
+}
+.electionsub{
+  display:flex;
+  align-items: center
+}

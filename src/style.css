@@ -1,0 +1,26 @@
+:root{
+  --color-bg:#09090B ;
+     --color-primary:#D3477D;
+     --color-sub:gray;
+     --color-bg2:#151517;
+     --color-text:#fff
+     
+ }
+ *{
+     padding:0px;
+     margin:0px;
+     box-sizing: border-box;
+ }
+ body{
+     min-height: 100vh;
+     background-color: var(--color-bg);
+     color: var(--color-text);    
+ }
+
+h1, p {
+  font-family: Lato;
+}
+hr{
+  border:thin solid rgba(255,255,255,0.1);
+  
+}

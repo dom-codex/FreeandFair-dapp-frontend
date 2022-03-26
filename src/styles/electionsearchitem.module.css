@@ -1,0 +1,79 @@
+.electioncont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.electioncont img {
+  width: 150px;
+  height: 150px;
+  border-radius: 70% 70% 70% 70%;
+}
+.label,
+.data {
+  text-align: center;
+  margin-top: 8px;
+}
+.data {
+  color: var(--color-sub);
+  margin-top: 0px;
+  font-size: 0.8em;
+}
+.timer {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 16px;
+  margin-bottom: 18px;
+}
+.timermain {
+  text-align: center;
+  padding: 12px;
+  box-shadow: 0px 0px 5px grey;
+  border-radius: 6px;
+}
+.timermain p:nth-child(1) {
+  color: var(--color-sub);
+}
+.timermain p:nth-child(2) {
+  font-size: 0.8em;
+}
+.btncont {
+  text-align: center;
+  padding-bottom: 24px;
+}
+.btncont button {
+  width: 180px;
+  height: 38px;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+  color: var(--color-text);
+}
+.btncont button i {
+  color: white !important;
+}
+/*Search illustration styles */
+
+.searchillustration {
+  display: grid;
+  place-items: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.loader img {
+  height: 60px;
+  width: 60px;
+}
+.searchillustration img {
+  height: 200px;
+  display: block;
+}
+/*loader stylesheet */
+.loader {
+  display: grid;
+  place-items: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  height:120px
+}
