@@ -11,4 +11,4 @@ const searchClickHandler = (state, dispatch) => {
 const tabBtnHandler = (pos, setPos) => {
   setPos(pos);
 };
-export { searchClickHandler, tabBtnHandlerb };
+export { searchClickHandler, tabBtnHandler };
