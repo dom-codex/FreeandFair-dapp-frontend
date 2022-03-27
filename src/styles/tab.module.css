@@ -23,6 +23,9 @@
   color: var(--color-sub);
   text-align: center;
 }
+.saveChanges{
+  margin-bottom: 12px;
+}
 .countdown {
   margin-top: 32px;
 }

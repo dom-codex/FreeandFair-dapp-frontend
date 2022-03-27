@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from '../styles/tab.module.css';
 const GeneralTab = () => {
   return (
     <div className={styles.general}>
       <div>
         <label>Title </label>
-        <input type="text" />
+        <input type="text" disabled />
       </div>
       <hr />
       <div>
         <p className={styles.heading}>Election timing</p>
         <div>
           <label>Start time</label>
-          <input type="datetime-local" />
+          <input
+            type="datetime-local"
+            onChange={(e) => alert(Date.parse(e.target.value))}
+          />
+        </div>
+        <div className={styles.saveChanges}>
+          <button>Save Changes</button>
         </div>
         <div>
           <label>End time</label>
           <input type="datetime-local" />
         </div>
+        <div className={styles.saveChanges}>
+          <button>Save Changes</button>
+        </div>
         <div>
           <label>Election duration</label>
           <input type="text" disabled />
         </div>
+
         <div className={styles.countdown}>
           <p className={styles.heading}>Countdown to election start</p>
           <div className={styles.countdowntimer}>
