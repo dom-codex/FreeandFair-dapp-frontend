@@ -4,6 +4,7 @@ import ElectionSearchItem from '../components/electionsearchitem.js';
 import Loader from '../components/loader.js';
 import Polls from '../components/polls.js';
 import GeneralTab from '../components/generaltab.js';
+import ElectionCandidates from '../components/electioncandidates.js';
 const renderSearchComponentItem = (state, dispatch) => {
   if (
     !state.searchingElection &&
@@ -28,7 +29,7 @@ const renderTabItem = (pos) => {
     case 2:
       return <Polls />;
     case 3:
-      return;
+      return <ElectionCandidates />;
     case 4:
       return;
   }

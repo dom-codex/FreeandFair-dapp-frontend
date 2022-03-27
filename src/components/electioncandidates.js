@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../styles/tab.module.css';
 const ElectionCandidates = () => {
   return (
     <div className={styles.listsofcandidates}>
       <div className={styles.utilnav}>
-        <div className={candidatesearch}>
+        <div className={styles.candidatesearch}>
           <input type="text" placeholder="candidate name" />
           <button>
             <i class="material-icons">search</i>

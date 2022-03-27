@@ -99,3 +99,72 @@ marquee {
   width: 75%;
   margin: auto;
 }
+/*CANDIDATES AND VOTER LIST STYLE*/
+.utilnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0px;
+}
+.candidatesearch {
+  position: relative;
+  width: 50%;
+}
+.candidatesearch input {
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  padding-left: 12px;
+  color: var(--color-sub2);
+  padding-right: 36px;
+  background-color: var(--color-bg2);
+}
+
+.candidatesearch button {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  margin-right: 8px;
+}
+.candidatesearch button i {
+  color: var(--color-sub2);
+}
+.addbtncont button {
+  background: none;
+  border: none;
+}
+.addbtncont i {
+  color: var(--color-primary);
+}
+.candidatescont img {
+  height: 80px;
+  width: 80px;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+.candidatesitem {
+  display: flex;
+}
+.candidatesitem {
+  margin-bottom: 12px;
+  border-bottom: thin solid var(--color-sub);
+}
+.candidatesitem:last-child {
+  border-bottom: none;
+}
+.candidatedetails p {
+  display: inline-block;
+}
+.label {
+  margin-right: 8px;
+  color: var(--color-sub2);
+  font-size: 0.75em;
+}
+hr {
+  display: block;
+  margin: 12px 0px;
+  border: thin solid var(--color-sub);
+}
