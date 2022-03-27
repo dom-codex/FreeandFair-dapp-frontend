@@ -2,6 +2,8 @@ import React from 'react';
 import SearchIllustration from '../components/searchillustration.js';
 import ElectionSearchItem from '../components/electionsearchitem.js';
 import Loader from '../components/loader.js';
+import Polls from '../components/polls.js';
+import GeneralTab from '../components/generaltab.js';
 const renderSearchComponentItem = (state, dispatch) => {
   if (
     !state.searchingElection &&
@@ -22,9 +24,9 @@ const renderSearchComponentItem = (state, dispatch) => {
 const renderTabItem = (pos) => {
   switch (pos) {
     case 1:
-      return;
+      return <GeneralTab />;
     case 2:
-      return;
+      return <Polls />;
     case 3:
       return;
     case 4:
@@ -43,4 +45,4 @@ const moveIndicator = (pos) => {
       return { left: '75%' };
   }
 };
-export { renderSearchComponentItem,moveIndicator};
+export { renderSearchComponentItem, moveIndicato, renderTabItem };

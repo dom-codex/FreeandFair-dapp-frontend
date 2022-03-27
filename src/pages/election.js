@@ -5,6 +5,7 @@ import styles from '../styles/electiondetails.module.css';
 import GeneralTab from '../components/generaltab.js';
 import { evaluateIndicatorPos } from '../utils/evaluator.js';
 import { tabBtnHandler } from '../utils/handlers.js';
+import { renderTabItem } from '../utils/renderer.js';
 const Election = () => {
   const [pos, setIndicatorPos] = useState(1);
   return (
@@ -38,9 +39,7 @@ const Election = () => {
       </section>
       {/*tab body -->*/}
       <section>
-        <div classNames="tab-body">
-          <GeneralTab />
-        </div>
+        <div classNames="tab-body">{renderTabItem(pos)}</div>
       </section>
     </section>
   );

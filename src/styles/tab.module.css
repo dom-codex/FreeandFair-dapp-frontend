@@ -1,61 +1,101 @@
-.general{
-  padding-top:32px;
-  width:90%;
-  margin:auto;
-  
+.general {
+  padding-top: 32px;
+  width: 90%;
+  margin: auto;
 }
 .general input {
-  width:100%;
-  background-color:var(--color-bg2);
-  border:none;
+  width: 100%;
+  background-color: var(--color-bg2);
+  border: none;
   height: 36px;
-  border-radius:6px;
-  color:var(--color-sub2);
-  padding-left:6px
+  border-radius: 6px;
+  color: var(--color-sub2);
+  padding-left: 6px;
 }
-.general label{
-  font-size:0.7em;
-  color:var(--color-sub2)
+.general label {
+  font-size: 0.7em;
+  color: var(--color-sub2);
 }
-.heading{
-  font-size:0.7em;
+.heading {
+  font-size: 0.7em;
   margin-bottom: 18px;
-  margin-top :12px;
-  color:var(--color-sub);
-  text-align:center
+  margin-top: 12px;
+  color: var(--color-sub);
+  text-align: center;
 }
-.countdown{
-  margin-top:32px
+.countdown {
+  margin-top: 32px;
 }
-.countdowntimer{
+.countdowntimer {
   display: flex;
 }
 .countdowntimer div {
-  flex:1;
+  flex: 1;
   text-align: center;
-  background-color:var(--color-bg2);
-  padding:16px;
-  border-radius:6px;
-  margin-right:12px
-  
+  background-color: var(--color-bg2);
+  padding: 16px;
+  border-radius: 6px;
+  margin-right: 12px;
 }
-.countdowntimer div p:nth-child(2){
+.countdowntimer div p:nth-child(2) {
   font-size: 0.65em;
-  color:var(--color-sub)
+  color: var(--color-sub);
 }
-.controlbtns{
+.controlbtns {
   display: flex;
-  width:80%;
+  width: 80%;
   margin: auto;
-  padding-bottom: 24px
+  padding-bottom: 24px;
 }
-.controlbtns button{
-  flex:1;
-  height:38px;
-  margin-right:6px;
-  border-radius:6px;
-  border: none
+.controlbtns button {
+  flex: 1;
+  height: 38px;
+  margin-right: 6px;
+  border-radius: 6px;
+  border: none;
 }
-.controlbtns button:nth-child(1){
-  background-color:var(--color-primary)
+.controlbtns button:nth-child(1) {
+  background-color: var(--color-primary);
+}
+/*STYLES FOR POLLS*/
+.pollitem {
+  display: block;
+}
+.pollcandidate {
+  overflow-x: scroll;
+  overflow: auto;
+  white-space: nowrap;
+}
+.pollcandidate img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: thin solid var(--color-sub2);
+  padding: 8px;
+}
+.pollitemheading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 12px 16px 12px;
+  background-color: var(--color-bg2);
+}
+.candidateitem {
+  display: inline-block;
+  padding: 12px;
+  margin-right: 14px;
+  margin-left: 14px;
+  text-align: center;
+}
+.candidatename {
+  color: var(--color-sub2);
+  font-size: 0.9em;
+  margin-top: 8px;
+  text-align: center;
+}
+marquee {
+  color: var(--color-sub);
+  font-size: 0.75em;
+  width: 75%;
+  margin: auto;
 }
