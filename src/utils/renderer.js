@@ -5,6 +5,7 @@ import Loader from '../components/loader.js';
 import Polls from '../components/polls.js';
 import GeneralTab from '../components/generaltab.js';
 import ElectionCandidates from '../components/electioncandidates.js';
+import Voters from '../components/voterslist.js';
 const renderSearchComponentItem = (state, dispatch) => {
   if (
     !state.searchingElection &&
@@ -31,7 +32,7 @@ const renderTabItem = (pos) => {
     case 3:
       return <ElectionCandidates />;
     case 4:
-      return;
+      return <Voters />;
   }
 };
 const moveIndicator = (pos) => {

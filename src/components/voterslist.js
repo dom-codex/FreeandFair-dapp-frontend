@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../styles/tab.module.css';
 const Voters = () => {
   return (
     <div className={styles.voterslists}>
       <div className={styles.utilnav}>
-        <div className={candidatesearch}>
+        <div className={styles.candidatesearch}>
           <input type="text" placeholder="voter's address or Id" />
           <button>
             <i class="material-icons">search</i>
@@ -22,7 +23,7 @@ const Voters = () => {
           </div>
           <div>
             <div className={styles.candidatedetails}>
-              <p className={styles .label}>Name:</p>
+              <p className={styles.label}>Name:</p>
               <p>Dominic Ibolo .W</p>
             </div>
             <div className={styles.candidatedetails}>
@@ -38,13 +39,11 @@ const Voters = () => {
               <p>0x2gb45</p>
             </div>
             <div className={styles.candidatedetails}>
-              <p className= {styles.label}>Voted :</p>
+              <p className={styles.label}>Voted :</p>
               <p>False</p>
             </div>
           </div>
         </div>
-        
-        
       </div>
     </div>
   );
