@@ -24,7 +24,8 @@
   text-align: center;
 }
 .saveChanges{
-  margin-bottom: 12px;
+  margin-bottom: 2px;
+  text-align: right;
 }
 .countdown {
   margin-top: 32px;
