@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../styles/tab.module.css"
+import styles from '../styles/tab.module.css';
 const GeneralTab = () => {
   return (
     <div className={styles.general}>
@@ -12,15 +12,15 @@ const GeneralTab = () => {
         <p className={styles.heading}>Election timing</p>
         <div>
           <label>Start time</label>
-          <input type="text" />
+          <input type="datetime-local" />
         </div>
         <div>
           <label>End time</label>
-          <input type="text" />
+          <input type="datetime-local" />
         </div>
         <div>
           <label>Election duration</label>
-          <input type="text" />
+          <input type="text" disabled />
         </div>
         <div className={styles.countdown}>
           <p className={styles.heading}>Countdown to election start</p>

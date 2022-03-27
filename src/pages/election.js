@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer, createContext } from 'react';
 import Nav from '../components/nav.js';
 import ElectionDetails from '../components/electiondetails.js';
 import styles from '../styles/electiondetails.module.css';
@@ -6,8 +6,11 @@ import GeneralTab from '../components/generaltab.js';
 import { evaluateIndicatorPos } from '../utils/evaluator.js';
 import { tabBtnHandler } from '../utils/handlers.js';
 import { renderTabItem } from '../utils/renderer.js';
+import {electionReducer} from '../store/election.js';
+export const ElectionContext = createContext(null);
 const Election = () => {
   const [pos, setIndicatorPos] = useState(1);
+  const [state, dispatch] = useReducer(electionReducer, {});
   return (
     <section>
       <Nav />
@@ -38,9 +41,11 @@ const Election = () => {
         </div>
       </section>
       {/*tab body -->*/}
-      <section>
-        <div classNames="tab-body">{renderTabItem(pos)}</div>
-      </section>
+      <ElectionContext.Provider value={{ state, dispatch }}>
+        <section>
+          <div classNames="tab-body">{renderTabItem(pos)}</div>
+        </section>
+      </ElectionContext.Provider>
     </section>
   );
 };
