@@ -3,7 +3,7 @@ import styles from '../styles/tab.module.css';
 const Polls = (props) => {
   return (
     <div>
-      //add new poll imgae button
+      <div className={styles.newpoll}><button>New Poll</button></div>
       <div className={styles.pollitems}>
         <div className={styles.pollitem}>
           <div className={styles.pollitemheading}>
