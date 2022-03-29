@@ -6,15 +6,15 @@ import GeneralTab from '../components/generaltab.js';
 import { evaluateIndicatorPos } from '../utils/evaluator.js';
 import { tabBtnHandler } from '../utils/handlers.js';
 import { renderTabItem } from '../utils/renderer.js';
-import {electionReducer} from '../store/election.js';
+import {electionReducer,initialData} from '../store/election.js';
 export const ElectionContext = createContext(null);
 const Election = () => {
   const [pos, setIndicatorPos] = useState(1);
-  const [state, dispatch] = useReducer(electionReducer, {});
+  const [state, dispatch] = useReducer(electionReducer, initialData);
   return (
     <section>
       <Nav />
-      <ElectionDetails />
+      <ElectionDetails state={state} />
       <section>
         <div>
           <div className={styles.tabhead}>

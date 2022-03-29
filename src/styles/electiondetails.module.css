@@ -26,6 +26,9 @@
   margin-right:4px;
   font-size: 0.75em
 }
+.addr button i{
+  color:red!important 
+}
 .electioninfo button{
   background:none;
   border:none;
