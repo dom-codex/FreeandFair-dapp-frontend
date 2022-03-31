@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/electiondetails.module.css';
+import { evaluateStatus } from '../utils/evaluator.js';
 const ElectionDetails = ({ state }) => {
   return (
     <section>
@@ -32,7 +33,7 @@ const ElectionDetails = ({ state }) => {
           </div>
           <div className={styles.statsitem}>
             <p>Status</p>
-            <p>{state.status}</p>
+            <p>{evaluateStatus(state.status)}</p>
           </div>
         </div>
       </div>

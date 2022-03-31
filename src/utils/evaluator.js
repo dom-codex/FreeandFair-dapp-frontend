@@ -15,3 +15,13 @@ export const evaluateDuration = (time) => {
   const { days, hrs, min, sec } = computeTiming(time);
   return `${days} days ${hrs} hours ${min} minute(s) ${sec} second(s)`;
 };
+export const evaluateStatus = (status) => {
+  switch (status) {
+    case 0:
+      return 'NOT_STARRTED';
+    case 1:
+      return 'STARTED';
+    case 2:
+      return 'ENDED';
+  }
+};

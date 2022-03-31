@@ -8,14 +8,11 @@ import { beginCountDown } from '../utils/timeHandler.js';
 const GeneralTab = () => {
   const { state, dispatch } = useContext(ElectionContext);
   useLayoutEffect(() => {
-    
-      beginCountDown(startCountDown, state.startTime, dispatch);
-  },[]);
+    beginCountDown(startCountDown, state.startTime, dispatch);
+  }, []);
   useLayoutEffect(() => {
-    
-      beginCountDown(endCountDown, state.endTime, dispatch);
-    
-  },[]);
+    beginCountDown(endCountDown, state.endTime, dispatch);
+  }, []);
   return (
     <div className={styles.general}>
       <div>
