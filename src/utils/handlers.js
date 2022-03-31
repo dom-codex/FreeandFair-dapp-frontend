@@ -14,12 +14,12 @@ const tabBtnHandler = (pos, setPos) => {
 };
 export const setStartTimeHandler = (e, dispatch) => {
   const value = Date.parse(e.target.value);
-  alert(value);
+
   dispatch({ data: value, type: setStartTime });
 };
 export const setEndTimeHandler = (e, dispatch) => {
   const value = Date.parse(e.target.value);
-  alert(value);
+
   dispatch({ data: value, type: setEndTime });
 };
 export { searchClickHandler, tabBtnHandler };

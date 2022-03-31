@@ -1,10 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import styles from '../styles/tab.module.css';
 import { ElectionContext } from '../pages/election.js';
 import { setStartTimeHandler, setEndTimeHandler } from '../utils/handlers.js';
 import { evaluateDuration } from '../utils/evaluator.js';
+import { startCountDown, endCountDown } from '../store/election.js';
+import { beginCountDown } from '../utils/timeHandler.js';
 const GeneralTab = () => {
   const { state, dispatch } = useContext(ElectionContext);
+  useLayoutEffect(() => {
+    const key = setInterval(() => {
+      if (Math.floor(state.startTime - Date.now()) < 0)
+        return clearInterval(key);
+      beginCountDown(startCountDown, state.startTime, dispatch);
+    }, 1000);
+    return () => {
+      clearInterval(key);
+    };
+  });
+  useLayoutEffect(() => {
+    const key = setInterval(() => {
+      if (Math.floor(state.startTime - Date.now()) < 0)
+        return clearInterval(key);
+      beginCountDown(endCountDown, state.endTime, dispatch);
+    }, 1000);
+    return () => {
+      clearInterval(key);
+    };
+  });
   return (
     <div className={styles.general}>
       <div>
@@ -38,7 +60,9 @@ const GeneralTab = () => {
           <label>Election duration</label>
           <input
             type="text"
-            value={evaluateDuration(((state.endTime - state.startTime)+Date.now()))}
+            value={evaluateDuration(
+              state.endTime - state.startTime + Date.now()
+            )}
             disabled
           />
         </div>
@@ -47,19 +71,19 @@ const GeneralTab = () => {
           <p className={styles.heading}>Countdown to election start</p>
           <div className={styles.countdowntimer}>
             <div>
-              <p>00</p>
+              <p>{state.startCountDown.days}</p>
               <p>Day(s)</p>
             </div>
             <div>
-              <p>00</p>
+              <p>{state.startCountDown.hrs}</p>
               <p>Hour(s)</p>
             </div>
             <div>
-              <p>00</p>
+              <p>{state.startCountDown.min}</p>
               <p>Minute(s)</p>
             </div>
             <div>
-              <p>00</p>
+              <p>{state.startCountDown.sec}</p>
               <p>Second(s)</p>
             </div>
           </div>
@@ -68,19 +92,19 @@ const GeneralTab = () => {
           <p className={styles.heading}>Countdown to election end</p>
           <div className={styles.countdowntimer}>
             <div>
-              <p>00</p>
+              <p>{state.endCountDown.days}</p>
               <p>Day(s)</p>
             </div>
             <div>
-              <p>00</p>
+              <p>{state.endCountDown.hrs}</p>
               <p>Hour(s)</p>
             </div>
             <div>
-              <p>00</p>
+              <p>{state.endCountDown.min}</p>
               <p>Minute(s)</p>
             </div>
             <div>
-              <p>00</p>
+              <p>{state.endCountDown.sec}</p>
               <p>Second(s)</p>
             </div>
           </div>
