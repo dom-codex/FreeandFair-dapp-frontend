@@ -8,25 +8,14 @@ import { beginCountDown } from '../utils/timeHandler.js';
 const GeneralTab = () => {
   const { state, dispatch } = useContext(ElectionContext);
   useLayoutEffect(() => {
-    const key = setInterval(() => {
-      if (Math.floor(state.startTime - Date.now()) < 0)
-        return clearInterval(key);
+    
       beginCountDown(startCountDown, state.startTime, dispatch);
-    }, 1000);
-    return () => {
-      clearInterval(key);
-    };
-  });
+  },[]);
   useLayoutEffect(() => {
-    const key = setInterval(() => {
-      if (Math.floor(state.startTime - Date.now()) < 0)
-        return clearInterval(key);
+    
       beginCountDown(endCountDown, state.endTime, dispatch);
-    }, 1000);
-    return () => {
-      clearInterval(key);
-    };
-  });
+    
+  },[]);
   return (
     <div className={styles.general}>
       <div>
@@ -44,7 +33,13 @@ const GeneralTab = () => {
           />
         </div>
         <div className={styles.saveChanges}>
-          <button>Save Changes</button>
+          <button
+            onClick={() =>
+              beginCountDown(startCountDown, state.startTime, dispatch)
+            }
+          >
+            Save Changes
+          </button>
         </div>
         <div>
           <label>End time</label>
@@ -54,7 +49,13 @@ const GeneralTab = () => {
           />
         </div>
         <div className={styles.saveChanges}>
-          <button>Save Changes</button>
+          <button
+            onClick={() =>
+              beginCountDown(endCountDown, state.endTime, dispatch)
+            }
+          >
+            Save Changes
+          </button>
         </div>
         <div>
           <label>Election duration</label>
