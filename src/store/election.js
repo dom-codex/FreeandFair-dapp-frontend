@@ -15,7 +15,6 @@ export const electionReducer = (state, action) => {
         },
       };
     case startCountDown:
-      
       return {
         ...state,
         startCountDown: {
@@ -25,6 +24,8 @@ export const electionReducer = (state, action) => {
           sec: action.data.sec,
         },
       };
+    case managinglection:
+      return { ...state, managingElection: action.data };
     default:
       return state;
   }
@@ -38,6 +39,7 @@ export const initialData = {
   duration: 0,
   startTime: Date.now(),
   endTime: Date.now(),
+  managingElection: false,
   startCountDown: {
     days: 0,
     hrs: 0,
@@ -57,3 +59,4 @@ export const setEndTime = 'SET_END_TIME';
 export const setLoading = 'LOADING';
 export const startCountDown = 'START_COUNTDOWN';
 export const endCountDown = 'END_COUNTDOWN';
+export const managinglection = 'MANAGING_ELECTION';

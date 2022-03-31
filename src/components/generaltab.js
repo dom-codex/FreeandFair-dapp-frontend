@@ -5,6 +5,7 @@ import { setStartTimeHandler, setEndTimeHandler } from '../utils/handlers.js';
 import { evaluateDuration, evaluateStatus } from '../utils/evaluator.js';
 import { startCountDown, endCountDown } from '../store/election.js';
 import { beginCountDown } from '../utils/timeHandler.js';
+import Loader from '../components/loader.js';
 const GeneralTab = () => {
   const { state, dispatch } = useContext(ElectionContext);
   useLayoutEffect(() => {
@@ -111,14 +112,21 @@ const GeneralTab = () => {
           <hr />
           <p className={styles.heading}>Election Management</p>
 
-          <div className={styles.controlbtns}>
-            <button disabled={evaluateStatus(state.status) != 'NOT_STARTED'}>
-              Start Election
-            </button>
-            <button disabled={evaluateStatus(state.status) != 'STARTED'}>
-              End Election
-            </button>
-          </div>
+          {!state.managingElection ? (
+            <div className={styles.controlbtns}>
+              <button disabled={evaluateStatus(state.status) != 'NOT_STARTED'}>
+                Start Election
+              </button>
+              <button disabled={evaluateStatus(state.status) != 'STARTED'}>
+                End Election
+              </button>
+            </div>
+          ) : (
+            <div>
+              {' '}
+              <Loader />{' '}
+            </div>
+          )}
         </div>
       </div>
     </div>
