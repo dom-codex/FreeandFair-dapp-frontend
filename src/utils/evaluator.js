@@ -18,7 +18,7 @@ export const evaluateDuration = (time) => {
 export const evaluateStatus = (status) => {
   switch (status) {
     case 0:
-      return 'NOT_STARRTED';
+      return 'NOT_STARTED';
     case 1:
       return 'STARTED';
     case 2:

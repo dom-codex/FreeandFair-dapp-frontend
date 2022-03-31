@@ -2,7 +2,7 @@ import React, { useContext, useLayoutEffect } from 'react';
 import styles from '../styles/tab.module.css';
 import { ElectionContext } from '../pages/election.js';
 import { setStartTimeHandler, setEndTimeHandler } from '../utils/handlers.js';
-import { evaluateDuration } from '../utils/evaluator.js';
+import { evaluateDuration, evaluateStatus } from '../utils/evaluator.js';
 import { startCountDown, endCountDown } from '../store/election.js';
 import { beginCountDown } from '../utils/timeHandler.js';
 const GeneralTab = () => {
@@ -112,8 +112,12 @@ const GeneralTab = () => {
           <p className={styles.heading}>Election Management</p>
 
           <div className={styles.controlbtns}>
-            <button>Start Election</button>
-            <button>End Election</button>
+            <button disabled={evaluateStatus(state.status) != 'NOT_STARTED'}>
+              Start Election
+            </button>
+            <button disabled={evaluateStatus(state.status) != 'STARTED'}>
+              End Election
+            </button>
           </div>
         </div>
       </div>
