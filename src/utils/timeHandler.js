@@ -17,6 +17,15 @@ export const computeTiming = (time) => {
 export const countDown = (time, dispatch) => {
   dispatch({ type: updateTime, data: computeTiming(time) });
 };
+const timer = {};
 export const beginCountDown = (type, time, dispatch) => {
-  dispatch({ type: type, data: computeTiming(time) });
+  if (Math.floor(time - Date.now()) <= 0) return;
+  const id = setInterval(() => {
+    if (Math.floor(time - Date.now()) <= 0) {
+      clearInterval(timer[type]);
+      return;
+    }
+    dispatch({ type: type, data: computeTiming(time) });
+  }, 1000);
+  timer[type] = id;
 };
