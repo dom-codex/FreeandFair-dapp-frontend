@@ -9,7 +9,7 @@
   border: none;
   height: 36px;
   border-radius: 6px;
-  color: var(--color-sub2);
+  color: var(--color-sub2) !important;
   padding-left: 6px;
 }
 .general label {
@@ -23,7 +23,7 @@
   color: var(--color-sub);
   text-align: center;
 }
-.saveChanges{
+.saveChanges {
   margin-bottom: 2px;
   text-align: right;
 }
@@ -65,14 +65,14 @@
 .pollitem {
   display: block;
 }
-.newpoll{
+.newpoll {
   text-align: right;
-  padding:1px 12px
+  padding: 1px 12px;
 }
-.newpoll button{
-  background:none;
-  border:none;
-  color:var(--color-primary)
+.newpoll button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
 }
 .pollcandidate {
   overflow-x: scroll;

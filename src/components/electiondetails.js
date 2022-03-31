@@ -12,7 +12,10 @@ const ElectionDetails = ({ state }) => {
           <div>
             <p className={styles.addr}>{state.address}</p>
             <button>
-              <i className="material-icons" style={{ color: 'red' }}>
+              <i
+                className="material-icons"
+                style={{ color: 'var(--color-sub)' }}
+              >
                 content_copy
               </i>
             </button>

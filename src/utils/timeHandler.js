@@ -1,5 +1,5 @@
 import {updateTime} from "../utils/constants.js"
-const computeTiming=(time)=>{
+export const computeTiming=(time)=>{
 const timeInSeconds =Math.floor((time -Date.now())/1000);
 const timeIndays = Math.floor(timeInSeconds/(60*60*24))
 const timeInHrsMinSe =Math.floor(timeInSeconds % (60*60*24))

@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import styles from '../styles/tab.module.css';
+import { ElectionContext } from '../pages/election.js';
+import { setStartTimeHandler, setEndTimeHandler } from '../utils/handlers.js';
+import { evaluateDuration } from '../utils/evaluator.js';
 const GeneralTab = () => {
+  const { state, dispatch } = useContext(ElectionContext);
   return (
     <div className={styles.general}>
       <div>
         <label>Title </label>
-        <input type="text" disabled />
+        <input type="text" value={state.title} disabled />
       </div>
       <hr />
       <div>
@@ -14,7 +18,7 @@ const GeneralTab = () => {
           <label>Start time</label>
           <input
             type="datetime-local"
-            onChange={(e) => alert(Date.parse(e.target.value))}
+            onChange={(e) => setStartTimeHandler(e, dispatch)}
           />
         </div>
         <div className={styles.saveChanges}>
@@ -22,14 +26,21 @@ const GeneralTab = () => {
         </div>
         <div>
           <label>End time</label>
-          <input type="datetime-local" />
+          <input
+            type="datetime-local"
+            onChange={(e) => setEndTimeHandler(e, dispatch)}
+          />
         </div>
         <div className={styles.saveChanges}>
           <button>Save Changes</button>
         </div>
         <div>
           <label>Election duration</label>
-          <input type="text" disabled />
+          <input
+            type="text"
+            value={evaluateDuration(((state.endTime - state.startTime)+Date.now()))}
+            disabled
+          />
         </div>
 
         <div className={styles.countdown}>
