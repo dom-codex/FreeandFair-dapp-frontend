@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from ""
+import styles from "../styles/modal.module.css"
 export default NewPollModal = () => {
   return (
     <section className={styles.newpoll}>
