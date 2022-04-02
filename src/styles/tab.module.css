@@ -68,11 +68,14 @@
 .newpoll {
   text-align: right;
   padding: 1px 12px;
+  background-color: var(--color-bg2);
+  margin-bottom: 2px;
 }
 .newpoll button {
   background: none;
   border: none;
   color: var(--color-primary);
+  margin: 14px 8px;
 }
 .pollcandidate {
   overflow-x: scroll;
