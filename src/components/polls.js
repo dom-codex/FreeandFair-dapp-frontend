@@ -26,7 +26,7 @@ const PollItem = ({ title, candidates }) => {
     <div className={styles.pollitem}>
       <div className={styles.pollitemheading}>
         <p>{title}</p>
-        <div>
+        <div className={styles.polledit}>
           <i class="material-icons">arrow_drop_down</i>
         </div>
       </div>
