@@ -29,4 +29,25 @@ const Polls = (props) => {
     </div>
   );
 };
+const PollItem = ({ title, candidates }) => {
+  return (
+    <div className={styles.pollitem}>
+      <div className={styles.pollitemheading}>
+        <p>{title}</p>
+        <div>
+          <i class="material-icons">arrow_drop_down</i>
+        </div>
+      </div>
+      <div className={styles.pollcandidate}>
+        {candidates.map(({ name, mandate }, i) => (
+          <div className={styles.candidateitem} key={i}>
+            <img src="twi.jpg" />
+            <p className={styles.candidatename}>{name}</p>
+            <marquee scrollamount="2">{mandate}</marquee>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 export default Polls;

@@ -27,7 +27,7 @@ const NewPollModal = ({ handler }) => {
             </div>
 
             <div>
-              <button>AD</button>
+              <button>ADD</button>
             </div>
           </div>
         </div>

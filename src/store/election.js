@@ -52,6 +52,7 @@ export const initialData = {
     min: 0,
     sec: 0,
   },
+  polls: [],
 };
 export const init = 'INIT';
 export const setStartTime = 'SET_START_TIME';
