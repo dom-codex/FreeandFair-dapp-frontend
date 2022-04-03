@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/tab.module.css';
+import NewPollModal from '../modals/newpoll.js';
 const Polls = (props) => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <div className={styles.newpoll}><button>New Poll</button></div>
+      {showModal && <NewPollModal handler={setShowModal} />}
+      <div className={styles.newpoll}>
+        <button onClick={() => setShowModal(true)}>New Poll</button>
+      </div>
       <div className={styles.pollitems}>
         <div className={styles.pollitem}>
           <div className={styles.pollitemheading}>

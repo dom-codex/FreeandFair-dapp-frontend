@@ -25,6 +25,7 @@
   border: thin solid var(--color-sub);
   border-radius: 6px;
   padding: 22px;
+  position: relative;
   background-color: rgba(21, 21, 23, 0.6);
 }
 .submodal p {
