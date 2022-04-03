@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/modal.module.css';
 const style = {
   width: 22,
@@ -9,7 +9,8 @@ const style = {
   top: -8,
   right: -4,
 };
-const NewPollModal = ({ handler }) => {
+const NewPollModal = ({ handler, newPollHandler }) => {
+  const [poll, setpoll] = useState('');
   const close = () => {
     handler(false);
   };
@@ -23,11 +24,22 @@ const NewPollModal = ({ handler }) => {
             </button>
             <div>
               <label>Poll Title</label>
-              <input type="text" />
+              <input
+                type="text"
+                value={poll}
+                onChange={(e) => setpoll(e.target.value)}
+              />
             </div>
 
             <div>
-              <button>ADD</button>
+              <button
+                onClick={() => {
+                  newPollHandler(poll);
+                  close();
+                }}
+              >
+                ADD
+              </button>
             </div>
           </div>
         </div>

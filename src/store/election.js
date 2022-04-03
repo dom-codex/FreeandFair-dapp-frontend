@@ -26,6 +26,14 @@ export const electionReducer = (state, action) => {
       };
     case managinglection:
       return { ...state, managingElection: action.data };
+    case createPoll:
+      return {
+        ...state,
+        createdpolls: [
+          ...state.createdpolls,
+          { title: action.data, candidates: [] },
+        ],
+      };
     default:
       return state;
   }
@@ -69,3 +77,4 @@ export const setLoading = 'LOADING';
 export const startCountDown = 'START_COUNTDOWN';
 export const endCountDown = 'END_COUNTDOWN';
 export const managinglection = 'MANAGING_ELECTION';
+export const createPoll = 'CREATE_NEW_POLL';

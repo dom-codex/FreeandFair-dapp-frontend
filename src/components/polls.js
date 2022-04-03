@@ -2,12 +2,19 @@ import React, { useState, useContext } from 'react';
 import styles from '../styles/tab.module.css';
 import NewPollModal from '../modals/newpoll.js';
 import { ElectionContext } from '../pages/election.js';
+import { createPoll } from '../store/election.js';
 const Polls = (props) => {
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(ElectionContext);
+  const newPollHandler = (title) => {
+    //DISPATCH ACTION
+    dispatch({ data: title, type: createPoll });
+  };
   return (
     <div>
-      {showModal && <NewPollModal handler={setShowModal} />}
+      {showModal && (
+        <NewPollModal handler={setShowModal} newPollHandler={newPollHandler} />
+      )}
       <div className={styles.newpoll}>
         <button onClick={() => setShowModal(true)}>New Poll</button>
       </div>

@@ -95,6 +95,7 @@
   align-items: center;
   padding: 16px 12px 16px 12px;
   background-color: var(--color-bg2);
+  margin-bottom: 3px;
 }
 .candidateitem {
   display: inline-block;
