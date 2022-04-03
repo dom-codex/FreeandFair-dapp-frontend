@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from '../styles/tab.module.css';
 import NewPollModal from '../modals/newpoll.js';
+import { ElectionContext } from '../pages/election.js';
 const Polls = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const { state, dispatch } = useContext(ElectionContext);
   return (
     <div>
       {showModal && <NewPollModal handler={setShowModal} />}
@@ -10,21 +12,11 @@ const Polls = (props) => {
         <button onClick={() => setShowModal(true)}>New Poll</button>
       </div>
       <div className={styles.pollitems}>
-        <div className={styles.pollitem}>
-          <div className={styles.pollitemheading}>
-            <p>Presidential</p>
-            <div>
-              <i class="material-icons">arrow_drop_down</i>
-            </div>
+        {state.createdpolls.map((data, i) => (
+          <div key={i}>
+            <PollItem title={data.title} candidates={data.candidates} />
           </div>
-          <div className={styles.pollcandidate}>
-            <div className={styles.candidateitem}>
-              <img src="twi.jpg" />
-              <p className={styles.candidatename}>Dominic Ibolo .W</p>
-              <marquee scrollamount="2">Change 2022</marquee>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

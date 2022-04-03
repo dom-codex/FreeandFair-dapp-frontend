@@ -52,7 +52,15 @@ export const initialData = {
     min: 0,
     sec: 0,
   },
-  polls: [],
+  createdpolls: [
+    {
+      title: 'PRESIDENTIAL',
+      candidates: [
+        { name: 'Dominic Ibolo W.', mandate: 'Together we can', icon: '' },
+      ],
+    },
+    { title: 'governorship', candidates: [] },
+  ],
 };
 export const init = 'INIT';
 export const setStartTime = 'SET_START_TIME';
