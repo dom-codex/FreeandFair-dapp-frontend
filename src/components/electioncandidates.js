@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/tab.module.css';
+import NewCandidateModal from '../modals/newcandidate.js';
 const ElectionCandidates = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className={styles.listsofcandidates}>
+      {showModal && <NewCandidateModal />}
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
           <input type="text" placeholder="candidate name" />
