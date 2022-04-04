@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from '../styles/tab.module.css';
 import NewCandidateModal from '../modals/newcandidate.js';
+import { ElectionContext } from '../pages/election.js';
 const ElectionCandidates = () => {
   const [showModal, setShowModal] = useState(false);
+  const { state, dispatch } = useContext(ElectionContext);
+  const openModal = () => {
+    setShowModal(true);
+  };
   return (
     <div className={styles.listsofcandidates}>
-      {showModal && <NewCandidateModal />}
+      {showModal && <NewCandidateModal handler={setShowModal} state={state} />}
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
           <input type="text" placeholder="candidate name" />
@@ -14,7 +19,7 @@ const ElectionCandidates = () => {
           </button>
         </div>
         <div className={styles.addbtncont}>
-          <button>
+          <button onClick={openModal}>
             <i class="material-icons">add</i>
           </button>
         </div>
