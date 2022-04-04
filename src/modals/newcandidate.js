@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styles from '../styles/modal.module.css';
 const closeBtnStyle = {
   width: 22,
@@ -13,6 +13,7 @@ const NewCandidateModal = ({ handler, state }) => {
   const close = () => {
     handler(false);
   };
+  const select = useRef(null);
   return (
     <section className={styles.newcandidate}>
       <div className={styles.modal}>
@@ -36,7 +37,7 @@ const NewCandidateModal = ({ handler, state }) => {
             </div>
             <div>
               <label>Office</label>
-              <select>
+              <select ref={select}>
                 <option></option>
                 {state.createdpolls.map((poll, i) => (
                   <option key={i} value={poll.title}>
