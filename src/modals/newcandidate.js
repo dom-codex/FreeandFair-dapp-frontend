@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styles from '../styles/modal.module.css';
+import { registerNewCandidateHandler } from '../utils/handlers.js';
 const closeBtnStyle = {
   width: 22,
   height: 22,
@@ -9,9 +10,12 @@ const closeBtnStyle = {
   top: -12,
   right: -8,
 };
-const NewCandidateModal = ({ handler, state }) => {
+const NewCandidateModal = ({ handler, state, dispatch }) => {
   const [pic, setPic] = useState(null);
-  const [pollIndex,setPollindex] = useState(0)
+  const [pollIndex, setPollindex] = useState(0);
+  const [name, setName] = useState('');
+  const [addr, setAddr] = useState('');
+  const [mandate, setMandate] = useState('');
   const close = () => {
     handler(false);
   };
@@ -21,7 +25,31 @@ const NewCandidateModal = ({ handler, state }) => {
   const displayPic = () => {
     return URL.createObjectURL(pic);
   };
-  const select = useRef(null);
+  const getSelectedPoll = (e) => {
+    const index = e.target.options[e.target.selectedIndex].value;
+    setPollindex(index);
+  };
+  const assignName = (e) => {
+    setName(e.target.value);
+  };
+  const assignAddress = (e) => {
+    setAddr(e.target.value);
+  };
+  const assignMandate = (e) => {
+    setMandate(e.target.value);
+  };
+  const registerCandidate = () => {
+    const data = {
+      pollIndex: pollIndex,
+      candidate: {
+        name: name,
+        mandate: mandate,
+        icon: displayPic(),
+      },
+    };
+    registerNewCandidateHandler(dispatch, data);
+    close();
+  };
   const fileInput = useRef(null);
   return (
     <section className={styles.newcandidate}>
@@ -36,23 +64,25 @@ const NewCandidateModal = ({ handler, state }) => {
                 src={pic ? displayPic() : 'some default pic'}
                 onClick={() => fileInput.current.click()}
               />
-              <p>Tap above to add candidate image</p>
+              <p style={{ marginTop: 8, marginBottom: 12 }}>
+                Tap above to add candidate image
+              </p>
               <p>New Candidate Details</p>
             </div>
             <div>
               <label>Name</label>
-              <input type="text" />
+              <input type="text" value={name} onChange={assignName} />
             </div>
             <div>
               <label>Address</label>
-              <input type="text" />
+              <input type="text" value={addr} onChange={assignAddress} />
             </div>
             <div>
               <label>Office</label>
-              <select ref={select}>
-                
+              <select onChange={getSelectedPoll}>
+                <option></option>
                 {state.createdpolls.map((poll, i) => (
-                  <option key={i} value={poll.title}>
+                  <option key={i} value={i}>
                     {poll.title}
                   </option>
                 ))}
@@ -60,7 +90,7 @@ const NewCandidateModal = ({ handler, state }) => {
             </div>
             <div>
               <label>Mandate</label>
-              <input type="text" />
+              <input type="text" valuue={mandate} onChange={assignMandate} />
             </div>
             <div>
               <input
@@ -72,7 +102,7 @@ const NewCandidateModal = ({ handler, state }) => {
               />
             </div>
             <div>
-              <button>Register</button>
+              <button onClick={registerCandidate}>Register</button>
             </div>
           </div>
         </div>

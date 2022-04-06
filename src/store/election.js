@@ -34,6 +34,13 @@ export const electionReducer = (state, action) => {
           { title: action.data, candidates: [] },
         ],
       };
+    case regCandidate:
+      const poll = state.createdpolls[action.data.pollIndex];
+      poll.candidates.push({ ...action.data.candidate });
+
+      return {
+        ...state,
+      };
     default:
       return state;
   }
@@ -78,3 +85,4 @@ export const startCountDown = 'START_COUNTDOWN';
 export const endCountDown = 'END_COUNTDOWN';
 export const managinglection = 'MANAGING_ELECTION';
 export const createPoll = 'CREATE_NEW_POLL';
+export const regCandidate = 'REGISTER CANDIDATE';

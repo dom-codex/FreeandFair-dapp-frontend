@@ -8,9 +8,23 @@ const ElectionCandidates = () => {
   const openModal = () => {
     setShowModal(true);
   };
+  const getCandidates = () => {
+    return state.createdpolls.map((data) => {
+      const candidates = data.candidates;
+      for (const candidate of candidates) {
+        return candidate;
+      }
+    });
+  };
   return (
     <div className={styles.listsofcandidates}>
-      {showModal && <NewCandidateModal handler={setShowModal} state={state} />}
+      {showModal && (
+        <NewCandidateModal
+          handler={setShowModal}
+          state={state}
+          dispatch={dispatch}
+        />
+      )}
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
           <input type="text" placeholder="candidate name" />
@@ -25,24 +39,33 @@ const ElectionCandidates = () => {
         </div>
       </div>
       <div className={styles.candidatescont}>
-        <div className={styles.candidatesitem}>
+        {getCandidates().map((data, i) => (
           <div>
-            <img src="vote.jpeg" />
+            <CandidateItem />
           </div>
-          <div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>Name:</p>
-              <p>Dominic Ibolo .W</p>
-            </div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>Office:</p>
-              <p>President</p>
-            </div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>Mandate:</p>
-              <p>Vision 2022</p>
-            </div>
-          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+const CandidateItem = ({}) => {
+  return (
+    <div className={styles.candidatesitem}>
+      <div>
+        <img src="vote.jpeg" />
+      </div>
+      <div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>Name:</p>
+          <p>Dominic Ibolo .W</p>
+        </div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>Office:</p>
+          <p>President</p>
+        </div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>Mandate:</p>
+          <p>Vision 2022</p>
         </div>
       </div>
     </div>
