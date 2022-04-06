@@ -10,10 +10,19 @@ const closeBtnStyle = {
   right: -8,
 };
 const NewCandidateModal = ({ handler, state }) => {
+  const [pic, setPic] = useState(null);
+  const [pollIndex,setPollindex] = useState(0)
   const close = () => {
     handler(false);
   };
+  const setImage = (e) => {
+    setPic(e.target.files[0]);
+  };
+  const displayPic = () => {
+    return URL.createObjectURL(pic);
+  };
   const select = useRef(null);
+  const fileInput = useRef(null);
   return (
     <section className={styles.newcandidate}>
       <div className={styles.modal}>
@@ -23,7 +32,10 @@ const NewCandidateModal = ({ handler, state }) => {
               X
             </button>
             <div>
-              <img src="sc.jpeg" />
+              <img
+                src={pic ? displayPic() : 'some default pic'}
+                onClick={() => fileInput.current.click()}
+              />
               <p>Tap above to add candidate image</p>
               <p>New Candidate Details</p>
             </div>
@@ -38,7 +50,7 @@ const NewCandidateModal = ({ handler, state }) => {
             <div>
               <label>Office</label>
               <select ref={select}>
-                <option></option>
+                
                 {state.createdpolls.map((poll, i) => (
                   <option key={i} value={poll.title}>
                     {poll.title}
@@ -51,7 +63,13 @@ const NewCandidateModal = ({ handler, state }) => {
               <input type="text" />
             </div>
             <div>
-              <input type="file" accept="image/*" />
+              <input
+                style={{ display: 'none' }}
+                type="file"
+                accept="image/*"
+                ref={fileInput}
+                onChange={setImage}
+              />
             </div>
             <div>
               <button>Register</button>
