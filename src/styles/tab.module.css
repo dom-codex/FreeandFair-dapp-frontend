@@ -167,10 +167,10 @@ marquee {
 }
 .candidatesitem {
   margin-bottom: 12px;
-  border-bottom: thin solid var(--color-sub);
+  border-bottom: thin solid var(--color-sub) !important;
 }
 .candidatesitem:last-child {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 .candidatedetails p {
   display: inline-block;

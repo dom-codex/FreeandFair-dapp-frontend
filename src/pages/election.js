@@ -6,7 +6,7 @@ import GeneralTab from '../components/generaltab.js';
 import { evaluateIndicatorPos } from '../utils/evaluator.js';
 import { tabBtnHandler } from '../utils/handlers.js';
 import { renderTabItem } from '../utils/renderer.js';
-import {electionReducer,initialData} from '../store/election.js';
+import { electionReducer, initialData } from '../store/election.js';
 export const ElectionContext = createContext(null);
 const Election = () => {
   const [pos, setIndicatorPos] = useState(1);
@@ -43,7 +43,7 @@ const Election = () => {
       {/*tab body -->*/}
       <ElectionContext.Provider value={{ state, dispatch }}>
         <section>
-          <div classNames="tab-body">{renderTabItem(pos)}</div>
+          <div className="tab-body">{renderTabItem(pos)}</div>
         </section>
       </ElectionContext.Provider>
     </section>
