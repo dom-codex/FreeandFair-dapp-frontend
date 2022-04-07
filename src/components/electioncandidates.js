@@ -33,6 +33,8 @@ const ElectionCandidates = () => {
         />
       )}
       <FullScreenLoader/>
+      1. set a full show screen modal in context reducer
+      2. use showfull modal var to control modal visibilit
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
           <input type="text" placeholder="candidate name" />
