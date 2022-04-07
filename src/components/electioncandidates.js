@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import styles from '../styles/tab.module.css';
 import NewCandidateModal from '../modals/newcandidate.js';
 import { ElectionContext } from '../pages/election.js';
-import FullScreenloader from "./fullloader.js"
 import FullScreenLoader from './fullloader.js';
 const ElectionCandidates = () => {
   const [showModal, setShowModal] = useState(false);
@@ -32,9 +31,7 @@ const ElectionCandidates = () => {
           dispatch={dispatch}
         />
       )}
-      <FullScreenLoader/>
-      1. set a full show screen modal in context reducer
-      2. use showfull modal var to control modal visibilit
+      {state.registeringCandidate && <FullScreenLoader/>}
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
           <input type="text" placeholder="candidate name" />

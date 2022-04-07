@@ -1,6 +1,11 @@
 import { searching } from './constants.js';
 import { searchForElection } from '../backendcalls/electionsearch.js';
-import { setStartTime, setEndTime, regCandidate } from '../store/election.js';
+import {
+  setStartTime,
+  setEndTime,
+  regCandidate,
+  registeringCandidate,
+} from '../store/election.js';
 //HANDLER FOR ELECTION SEARCH
 const searchClickHandler = (state, dispatch) => {
   if (!state.searchInput.length > 1) return null;
@@ -26,7 +31,11 @@ export const setEndTimeHandler = (e, dispatch) => {
 
   dispatch({ data: value, type: setEndTime });
 };
+//HANDLER FOR REGISTERING NEW  CANDIDATE
 export const registerNewCandidateHandler = (dispatch, data) => {
   dispatch({ type: regCandidate, data: data });
+  setTimeout(() => {
+    dispatch({ type: registeringCandidate, data: false });
+  }, 5000);
 };
 export { searchClickHandler, tabBtnHandler };

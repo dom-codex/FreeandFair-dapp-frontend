@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styles from '../styles/modal.module.css';
 import { registerNewCandidateHandler } from '../utils/handlers.js';
+import { registeringCandidate } from '../store/election.js';
 const closeBtnStyle = {
   width: 22,
   height: 22,
@@ -48,6 +49,7 @@ const NewCandidateModal = ({ handler, state, dispatch }) => {
       },
     };
     registerNewCandidateHandler(dispatch, data);
+    dispatch({ type: registeringCandidate, data: true });
     close();
   };
   const fileInput = useRef(null);

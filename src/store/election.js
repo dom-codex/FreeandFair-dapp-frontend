@@ -41,6 +41,8 @@ export const electionReducer = (state, action) => {
       return {
         ...state,
       };
+    case registeringCandidate:
+      return { ...state, registeringCandidate: action.data };
     default:
       return state;
   }
@@ -55,6 +57,7 @@ export const initialData = {
   startTime: Date.now(),
   endTime: Date.now(),
   managingElection: false,
+  registeringCandidate: false,
   startCountDown: {
     days: 0,
     hrs: 0,
@@ -68,13 +71,13 @@ export const initialData = {
     sec: 0,
   },
   createdpolls: [
-    {
+    /*{
       title: 'PRESIDENTIAL',
       candidates: [
         { name: 'Dominic Ibolo W.', mandate: 'Together we can', icon: '' },
       ],
     },
-    { title: 'governorship', candidates: [] },
+    { title: 'governorship', candidates: [] },*/
   ],
 };
 export const init = 'INIT';
@@ -86,3 +89,4 @@ export const endCountDown = 'END_COUNTDOWN';
 export const managinglection = 'MANAGING_ELECTION';
 export const createPoll = 'CREATE_NEW_POLL';
 export const regCandidate = 'REGISTER CANDIDATE';
+export const registeringCandidate = 'REGISTERING_CANDIDATE';
