@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import styles from '../styles/tab.module.css';
 import NewCandidateModal from '../modals/newcandidate.js';
 import { ElectionContext } from '../pages/election.js';
+import FullScreenloader from "./fullloader.js"
+import FullScreenLoader from './fullloader.js';
 const ElectionCandidates = () => {
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(ElectionContext);
@@ -30,6 +32,7 @@ const ElectionCandidates = () => {
           dispatch={dispatch}
         />
       )}
+      <FullScreenLoader/>
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
           <input type="text" placeholder="candidate name" />
@@ -45,9 +48,9 @@ const ElectionCandidates = () => {
       </div>
       <div className={styles.candidatescont}>
         {getCandidates().map((data, i) => (
-          <div key={i}>
-            <CandidateItem data={data} sn={i} size={getCandidates().size} />
-          </div>
+          
+            <CandidateItem data={data} key={}/>
+        
         ))}
       </div>
     </div>
@@ -57,11 +60,6 @@ const CandidateItem = ({ data: { name, mandate, office, icon }, sn, size }) => {
   return (
     <div
       className={styles.candidatesitem}
-      style={
-        sn >= 0 && sn < size - 1
-          ? { borderBottom: 'thin solid var(--color-sub)' }
-          : {}
-      }
     >
       <div>
         <img src={icon} alt={'candidate image'} />
