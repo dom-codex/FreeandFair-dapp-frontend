@@ -45,6 +45,7 @@ const NewCandidateModal = ({ handler, state, dispatch }) => {
       candidate: {
         name: name,
         mandate: mandate,
+        office: state.createdpolls[pollIndex].title,
         icon: displayPic(),
       },
     };

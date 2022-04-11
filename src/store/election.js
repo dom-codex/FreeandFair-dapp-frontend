@@ -45,7 +45,7 @@ export const electionReducer = (state, action) => {
     case registeringCandidate:
       return { ...state, registeringCandidate: action.data };
     case setCandidateList:
-      return { ...state, candidates: action.data };
+      return { ...state, candidates: [...action.data] };
     default:
       return state;
   }

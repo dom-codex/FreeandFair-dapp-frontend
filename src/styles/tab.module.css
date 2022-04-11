@@ -164,10 +164,14 @@ marquee {
 }
 .candidatesitem {
   display: flex;
-}
-.candidatesitem {
   margin-bottom: 12px;
   border-bottom: thin solid var(--color-sub) !important;
+  position: relative;
+}
+.deleteBtn {
+  position: absolute;
+  bottom: 12px;
+  right: 8px;
 }
 .candidatesitem:last-child {
   border-bottom: none !important;
