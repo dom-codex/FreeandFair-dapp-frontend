@@ -172,6 +172,10 @@ marquee {
   position: absolute;
   bottom: 12px;
   right: 8px;
+  background-color: transparent;
+}
+.deleteBtn i {
+  color: var(--color-primary);
 }
 .candidatesitem:last-child {
   border-bottom: none !important;
