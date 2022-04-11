@@ -38,9 +38,9 @@ const PollItem = ({ title, candidates }) => {
         </div>
       </div>
       <div className={styles.pollcandidate}>
-        {candidates.map(({ name, mandate }, i) => (
+        {candidates.map(({ name, mandate, icon }, i) => (
           <div className={styles.candidateitem} key={i}>
-            <img src="twi.jpg" />
+            <img src={icon} />
             <p className={styles.candidatename}>{name}</p>
             <marquee scrollamount="2">{mandate}</marquee>
           </div>
