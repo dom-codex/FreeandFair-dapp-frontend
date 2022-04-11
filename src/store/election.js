@@ -46,6 +46,18 @@ export const electionReducer = (state, action) => {
       return { ...state, registeringCandidate: action.data };
     case setCandidateList:
       return { ...state, candidates: [...action.data] };
+    case removeCandidate:
+      const { pollIndex, address } = action.data;
+      const newList = state.createdpolls[pollIndex].candidates.filter(
+        (candidate) => candidate.addr !== address
+      );
+      const newcandidateList = state.candidates.filter(
+        (candidate) => candidate.addr !== address
+      );
+      console.log(newList);
+      console.log(`${pollIndex} ${address}`);
+      state.createdpolls[pollIndex].candidates = newList;
+      return { ...state, candidates: newcandidateList };
     default:
       return state;
   }
@@ -95,3 +107,4 @@ export const createPoll = 'CREATE_NEW_POLL';
 export const regCandidate = 'REGISTER CANDIDATE';
 export const registeringCandidate = 'REGISTERING_CANDIDATE';
 export const setCandidateList = 'SET_CANDIDATE_LIST';
+export const removeCandidate = 'REMOVE_CANDIDATE';

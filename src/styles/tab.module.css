@@ -173,6 +173,7 @@ marquee {
   bottom: 12px;
   right: 8px;
   background-color: transparent;
+  border: none;
 }
 .deleteBtn i {
   color: var(--color-primary);
