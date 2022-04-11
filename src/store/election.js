@@ -36,7 +36,7 @@ export const electionReducer = (state, action) => {
       };
     case regCandidate:
       const poll = state.createdpolls[action.data.pollIndex];
-      poll.candidates.push({ ...action.data.candidate });
+      poll.candidates.push({ ...action.data.candidate });v
 
       return {
         ...state,
