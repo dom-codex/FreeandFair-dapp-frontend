@@ -40,9 +40,12 @@ export const electionReducer = (state, action) => {
 
       return {
         ...state,
+        candidates: [...state.candidates, action.data.candidate],
       };
     case registeringCandidate:
       return { ...state, registeringCandidate: action.data };
+    case setCandidateList:
+      return { ...state, candidates: action.data };
     default:
       return state;
   }
@@ -70,6 +73,7 @@ export const initialData = {
     min: 0,
     sec: 0,
   },
+  candidates: [],
   createdpolls: [
     /*{
       title: 'PRESIDENTIAL',
@@ -90,3 +94,4 @@ export const managinglection = 'MANAGING_ELECTION';
 export const createPoll = 'CREATE_NEW_POLL';
 export const regCandidate = 'REGISTER CANDIDATE';
 export const registeringCandidate = 'REGISTERING_CANDIDATE';
+export const setCandidateList = 'SET_CANDIDATE_LIST';

@@ -1,8 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useEffect } from 'react';
 import styles from '../styles/tab.module.css';
 import NewCandidateModal from '../modals/newcandidate.js';
 import { ElectionContext } from '../pages/election.js';
 import FullScreenLoader from './fullloader.js';
+import {setCandidateList} from "../store/election.js"
 const ElectionCandidates = () => {
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(ElectionContext);
@@ -22,6 +23,10 @@ const ElectionCandidates = () => {
     });
     return list;
   };
+  useEffect(()=>{
+    const candidatelist = getCandidates()
+    dispatch({type:setCandidateList, data:candidatelist})
+  },[])
   return (
     <div className={styles.listsofcandidates}>
       {showModal && (
@@ -46,7 +51,7 @@ const ElectionCandidates = () => {
         </div>
       </div>
       <div className={styles.candidatescont}>
-        {getCandidates().map((data, i) => (
+        {state.candidates.map((data, i) => (
           
             <CandidateItem data={data} key={}/>
         
