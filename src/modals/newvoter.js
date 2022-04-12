@@ -1,5 +1,14 @@
 import React, { useRef, useState } from 'react';
 import styles from '../styles/modal.module.css';
+const style = {
+  width: 22,
+  height: 22,
+  borderRadius: '50%',
+  backgroundColor: 'var(--color-sub2)',
+  position: 'absolute',
+  top: -8,
+  right: -4,
+};
 const NewVoter = () => {
   const [pic, setPic] = useState(null);
   const fileInput = useRef(null);
@@ -19,6 +28,7 @@ const NewVoter = () => {
       <div className={styles.modal}>
         <div className={styles.newmodal}>
           <div className={styles.submodal}>
+            <button style={style}>X</button>
             <div>
               <img src={pic ? displayPic() : ''} onClick={selectPic} />
               <p>Tap above to add voter image</p>
