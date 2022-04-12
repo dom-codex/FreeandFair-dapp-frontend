@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from '../styles/tab.module.css';
+import NewVoter from '../modals/newvoter.js';
 const Voters = () => {
   return (
     <div className={styles.voterslists}>
+      <NewVoter />
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
           <input type="text" placeholder="voter's address or Id" />
