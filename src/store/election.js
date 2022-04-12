@@ -54,10 +54,16 @@ export const electionReducer = (state, action) => {
       const newcandidateList = state.candidates.filter(
         (candidate) => candidate.addr !== address
       );
-      console.log(newList);
-      console.log(`${pollIndex} ${address}`);
       state.createdpolls[pollIndex].candidates = newList;
       return { ...state, candidates: newcandidateList };
+    case addVoter:
+      state.voters.push(action.data);
+      return { ...state };
+    case ismanagingvoter:
+      return {
+        ...state,
+        managingVoterState: action.data,
+      };
     default:
       return state;
   }
@@ -73,6 +79,7 @@ export const initialData = {
   endTime: Date.now(),
   managingElection: false,
   registeringCandidate: false,
+  managingVoterState: false,
   startCountDown: {
     days: 0,
     hrs: 0,
@@ -86,6 +93,7 @@ export const initialData = {
     sec: 0,
   },
   candidates: [],
+  voters: [],
   createdpolls: [
     /*{
       title: 'PRESIDENTIAL',
@@ -108,3 +116,5 @@ export const regCandidate = 'REGISTER CANDIDATE';
 export const registeringCandidate = 'REGISTERING_CANDIDATE';
 export const setCandidateList = 'SET_CANDIDATE_LIST';
 export const removeCandidate = 'REMOVE_CANDIDATE';
+export const addVoter = 'ADD_VOTER';
+export const ismanagingvoter = 'MANAGING_VOTER_STATE';

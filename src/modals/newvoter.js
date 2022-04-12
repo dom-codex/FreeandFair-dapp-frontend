@@ -9,8 +9,11 @@ const style = {
   top: -8,
   right: -4,
 };
-const NewVoter = () => {
+const NewVoter = ({ handler, addVoterHandler }) => {
   const [pic, setPic] = useState(null);
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [uniqueId, setUniqueId] = useState('');
   const fileInput = useRef(null);
   const selectPic = () => {
     fileInput.current.click();
@@ -23,12 +26,25 @@ const NewVoter = () => {
     const url = URL.createObjectURL(pic);
     return url;
   };
+  const close = () => {
+    handler(false);
+  };
+  const registerVoter = () => {
+    const data = {
+      name,
+      address,
+      uniqueId,
+    };
+    addVoterHandler(data);
+  };
   return (
     <section className={styles.newvoter}>
       <div className={styles.modal}>
         <div className={styles.newmodal}>
           <div className={styles.submodal}>
-            <button style={style}>X</button>
+            <button onClick={close} style={style}>
+              X
+            </button>
             <div>
               <img src={pic ? displayPic() : ''} onClick={selectPic} />
               <p>Tap above to add voter image</p>
@@ -36,15 +52,27 @@ const NewVoter = () => {
             </div>
             <div>
               <label>Name</label>
-              <input type="text" />
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+              />
             </div>
             <div>
               <label>Address</label>
-              <input type="text" />
+              <input
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                type="text"
+              />
             </div>
             <div>
               <label>UniqueID</label>
-              <input type="text" />
+              <input
+                value={uniqueId}
+                onChange={(e) => setUniqueId(e.target.value)}
+                type="text"
+              />
             </div>
 
             <div>
@@ -57,7 +85,7 @@ const NewVoter = () => {
               />
             </div>
             <div>
-              <button>Register</button>
+              <button onClick={registerVoter}>Register</button>
             </div>
           </div>
         </div>
