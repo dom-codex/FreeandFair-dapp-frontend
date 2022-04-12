@@ -34,8 +34,12 @@ const NewVoter = ({ handler, addVoterHandler }) => {
       name,
       address,
       uniqueId,
+      icon: displayPic(),
+      voted: false.toString(),
+      voteToken: 0,
     };
     addVoterHandler(data);
+    close();
   };
   return (
     <section className={styles.newvoter}>

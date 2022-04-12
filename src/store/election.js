@@ -57,7 +57,7 @@ export const electionReducer = (state, action) => {
       state.createdpolls[pollIndex].candidates = newList;
       return { ...state, candidates: newcandidateList };
     case addVoter:
-      state.voters.push(action.data);
+      state.registeredvoters.push(action.data);
       return { ...state };
     case ismanagingvoter:
       return {
@@ -93,7 +93,7 @@ export const initialData = {
     sec: 0,
   },
   candidates: [],
-  voters: [],
+  registeredvoters: [],
   createdpolls: [
     /*{
       title: 'PRESIDENTIAL',

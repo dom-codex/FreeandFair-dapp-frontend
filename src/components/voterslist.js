@@ -37,32 +37,39 @@ const Voters = () => {
         </div>
       </div>
       <div className={styles.candidatescont}>
-        <div className={styles.candidatesitem}>
-          <div>
-            <img src="vote.jpeg" />
-          </div>
-          <div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>Name:</p>
-              <p>Dominic Ibolo .W</p>
-            </div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>UniqueID:</p>
-              <p>3467/2017</p>
-            </div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>VoteTokens:</p>
-              <p>5</p>
-            </div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>Address :</p>
-              <p>0x2gb45</p>
-            </div>
-            <div className={styles.candidatedetails}>
-              <p className={styles.label}>Voted :</p>
-              <p>False</p>
-            </div>
-          </div>
+        {state.registeredvoters.map((voter, i) => (
+          <VoterItem {...voter} />
+        ))}
+      </div>
+    </div>
+  );
+};
+const VoterItem = ({ name, address, uniqueId, icon, voted, voteToken }) => {
+  return (
+    <div className={styles.candidatesitem}>
+      <div>
+        <img src={icon} />
+      </div>
+      <div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>Name:</p>
+          <p>{name}</p>
+        </div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>UniqueID:</p>
+          <p>{uniqueId}</p>
+        </div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>VoteTokens:</p>
+          <p>{voteToken}</p>
+        </div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>Address :</p>
+          <p>{address}</p>
+        </div>
+        <div className={styles.candidatedetails}>
+          <p className={styles.label}>Voted :</p>
+          <p>{voted}</p>
         </div>
       </div>
     </div>
