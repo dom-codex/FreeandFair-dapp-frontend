@@ -57,7 +57,7 @@ export const electionReducer = (state, action) => {
       state.createdpolls[pollIndex].candidates = newList;
       return { ...state, candidates: newcandidateList };
     case addVoter:
-      state.votersList.push(action.data)
+      state.votersList.push(action.data);
       state.registeredvoters.push(action.data);
       return { ...state };
     case ismanagingvoter:
@@ -72,13 +72,16 @@ export const electionReducer = (state, action) => {
           voter.uniqueId !== action.data.id
       );
       return { ...state };
-      case searchForVoter:
-        if(!action.data.length){
-          state.votersList = [...state.registeredvoters]
-          return {...state}
-        }
-      state.votersList = state.registeredVoters.filter(voter=>voter.name.contains(action.data)|| voter.address.contains(action.data))*
-      return {...state}
+    case searchForVoter:
+      if (!action.data.length) {
+        state.votersList = [...state.registeredvoters];
+        return { ...state };
+      }
+      const pattern = new RegExp(action.data);
+      state.votersList = state.registeredvoters.filter(
+        (voter) => pattern.test(voter.name) || pattern.test(voter.address)
+      );
+      return { ...state };
     default:
       return state;
   }
@@ -109,7 +112,7 @@ export const initialData = {
   },
   candidates: [],
   registeredvoters: [],
-  votersList = [],
+  votersList: [],
   createdpolls: [
     /*{
       title: 'PRESIDENTIAL',
@@ -133,6 +136,6 @@ export const registeringCandidate = 'REGISTERING_CANDIDATE';
 export const setCandidateList = 'SET_CANDIDATE_LIST';
 export const removeCandidate = 'REMOVE_CANDIDATE';
 export const addVoter = 'ADD_VOTER';
-export const ismanagingvoter = "MANAGING_VOTER_STATE";
+export const ismanagingvoter = 'MANAGING_VOTER_STATE';
 export const deleteVoter = 'DELETE_VOTER';
-export const searchForVoter = "SEARCH_FOR_VOTER"
+export const searchForVoter = 'SEARCH_FOR_VOTER';
