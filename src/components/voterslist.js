@@ -38,15 +38,26 @@ const Voters = () => {
       </div>
       <div className={styles.candidatescont}>
         {state.registeredvoters.map((voter, i) => (
-          <VoterItem {...voter} />
+          <VoterItem {...voter} key={i} />
         ))}
       </div>
     </div>
   );
 };
-const VoterItem = ({ name, address, uniqueId, icon, voted, voteToken }) => {
+const VoterItem = ({
+  name,
+  address,
+  uniqueId,
+  icon,
+  voted,
+  voteToken,
+  key,
+}) => {
   return (
-    <div className={styles.candidatesitem}>
+    <div className={styles.candidatesitem} key={key}>
+      <button className={styles.deleteBtn}>
+        <i className={'material-icons'}>delete</i>
+      </button>
       <div>
         <img src={icon} />
       </div>
