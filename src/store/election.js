@@ -77,7 +77,7 @@ export const electionReducer = (state, action) => {
           state.votersList = [...state.registeredvoters]
           return {...state}
         }
-      state.votersList = state.registeredVoters.filter(voter=>voter.name.contains(action.data)|| voter.address.contains(action.data))
+      state.votersList = state.registeredVoters.filter(voter=>voter.name.contains(action.data)|| voter.address.contains(action.data))*/
       return {...state}
     default:
       return state;
