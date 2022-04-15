@@ -27,6 +27,7 @@ export const electionReducer = (state, action) => {
     case managinglection:
       return { ...state, managingElection: action.data };
     case createPoll:
+      state.polls++;
       return {
         ...state,
         createdpolls: [
@@ -59,6 +60,7 @@ export const electionReducer = (state, action) => {
     case addVoter:
       state.votersList.push(action.data);
       state.registeredvoters.push(action.data);
+      state.voters++;
       return { ...state };
     case ismanagingvoter:
       return {
@@ -89,8 +91,8 @@ export const electionReducer = (state, action) => {
 export const initialData = {
   title: 'Fupre general election',
   address: '0x2djjskqq',
-  polls: 2,
-  voters: 100,
+  polls: 0,
+  voters: 0,
   status: 0,
   duration: 0,
   startTime: Date.now(),

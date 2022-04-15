@@ -3,6 +3,18 @@
   width: 90%;
   margin: auto;
 }
+.generalInputContainer {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.setTokenContainer {
+  margin-top: 4px;
+  text-align: right;
+}
+.generalInputContainer small {
+  font-size: 0.6em;
+  color: var(--color-sub);
+}
 .general input {
   width: 100%;
   background-color: var(--color-bg2);

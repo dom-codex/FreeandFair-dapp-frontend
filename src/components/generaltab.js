@@ -20,6 +20,14 @@ const GeneralTab = () => {
         <label>Title </label>
         <input type="text" value={state.title} disabled />
       </div>
+      <div className={styles.generalInputContainer}>
+        <label>No Of Vote Tokens Per User </label>
+        <input type={'number'} value={state.polls} />
+        <div className={styles.setTokenContainer}>
+          <button>set</button>
+        </div>
+        <small>This should be set ones all polls has being defined</small>
+      </div>
       <hr />
       <div>
         <p className={styles.heading}>Election timing</p>
