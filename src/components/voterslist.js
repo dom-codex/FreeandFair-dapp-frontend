@@ -2,7 +2,12 @@ import React, { useState, useContext } from 'react';
 import styles from '../styles/tab.module.css';
 import NewVoter from '../modals/newvoter.js';
 import { ElectionContext } from '../pages/election.js';
-import { addVoter, ismanagingvoter, deleteVoter } from '../store/election.js';
+import {
+  addVoter,
+  ismanagingvoter,
+  deleteVoter,
+  searchForVoter,
+} from '../store/election.js';
 import FullScreenLoader from '../components/fullloader.js';
 const Voters = () => {
   const { state, dispatch } = useContext(ElectionContext);
@@ -20,6 +25,10 @@ const Voters = () => {
   const handler = (data) => {
     dispatch({ type: deleteVoter, data: data });
   };
+  const searchHandler = (e) => {
+    const query = e.target.value;
+    dispatch({ type: searchForVoter, data: query });
+  };
   return (
     <div className={styles.voterslists}>
       {showModal && (
@@ -28,7 +37,11 @@ const Voters = () => {
       {state.managingVoterState && <FullScreenLoader />}
       <div className={styles.utilnav}>
         <div className={styles.candidatesearch}>
-          <input type="text" placeholder="voter's address or Id" />
+          <input
+            type="text"
+            placeholder="voter's address or Id"
+            onChange={searchHandler}
+          />
           <button>
             <i class="material-icons">search</i>
           </button>
@@ -40,7 +53,7 @@ const Voters = () => {
         </div>
       </div>
       <div className={styles.candidatescont}>
-        {state.registeredvoters.map((voter, i) => (
+        {state.votersList.map((voter, i) => (
           <VoterItem {...voter} key={i} handler={handler} />
         ))}
       </div>
