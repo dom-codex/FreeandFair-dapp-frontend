@@ -64,6 +64,13 @@ export const electionReducer = (state, action) => {
         ...state,
         managingVoterState: action.data,
       };
+    case deleteVoter:
+      state.registeredvoters = state.registeredvoters.filter(
+        (voter) =>
+          voter.address !== action.data.address &&
+          voter.uniqueId !== action.data.id
+      );
+      return { ...state };
     default:
       return state;
   }
@@ -118,3 +125,4 @@ export const setCandidateList = 'SET_CANDIDATE_LIST';
 export const removeCandidate = 'REMOVE_CANDIDATE';
 export const addVoter = 'ADD_VOTER';
 export const ismanagingvoter = 'MANAGING_VOTER_STATE';
+export const deleteVoter = 'DELETE_VOTER';

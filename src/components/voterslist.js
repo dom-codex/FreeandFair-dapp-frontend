@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import styles from '../styles/tab.module.css';
 import NewVoter from '../modals/newvoter.js';
 import { ElectionContext } from '../pages/election.js';
-import { addVoter, ismanagingvoter } from '../store/election.js';
+import { addVoter, ismanagingvoter, deleteVoter } from '../store/election.js';
 import FullScreenLoader from '../components/fullloader.js';
 const Voters = () => {
   const { state, dispatch } = useContext(ElectionContext);
@@ -16,6 +16,9 @@ const Voters = () => {
     setTimeout(() => {
       dispatch({ type: ismanagingvoter, data: false });
     }, 5000);
+  };
+  const handler = (data) => {
+    dispatch({ type: deleteVoter, data: data });
   };
   return (
     <div className={styles.voterslists}>
@@ -38,7 +41,7 @@ const Voters = () => {
       </div>
       <div className={styles.candidatescont}>
         {state.registeredvoters.map((voter, i) => (
-          <VoterItem {...voter} key={i} />
+          <VoterItem {...voter} key={i} handler={handler} />
         ))}
       </div>
     </div>
@@ -52,10 +55,18 @@ const VoterItem = ({
   voted,
   voteToken,
   key,
+  handler,
 }) => {
+  const deleteHandler = () => {
+    const data = {
+      address: address.toString(),
+      id: uniqueId.toString(),
+    };
+    handler(data);
+  };
   return (
     <div className={styles.candidatesitem} key={key}>
-      <button className={styles.deleteBtn}>
+      <button onClick={deleteHandler} className={styles.deleteBtn}>
         <i className={'material-icons'}>delete</i>
       </button>
       <div>
