@@ -2,6 +2,7 @@ import React, {createContext,useReducer} from "react";
 import Home from "./pages/home.js";
 import Election  from "./pages/election.js"
 import Electorate from "./pages/electorate.js"
+import Vote from "./pages/vote"
 import {reducer,initialData} from "./utils/logic.js"
 import "./style.css";
 export const AppContext = createContext(null)
@@ -10,7 +11,7 @@ export default function App() {
   return (
 
     <AppContext.Provider value={{dispatch,state}}>
-      <Election/>
+      <Vote/>
     </AppContext.Provider>
   );
 }
