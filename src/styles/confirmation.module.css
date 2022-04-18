@@ -1,0 +1,48 @@
+.mainSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  z-index: 500;
+}
+.container {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+.dialog {
+  background-color: var(--color-bg);
+  width: 65%;
+  margin: auto;
+  min-height: 120px;
+  border-radius: 2px;
+}
+.dialogHeader {
+  margin: 12px;
+  padding-bottom: 6px;
+  color: var(--color-sub);
+  display: flex;
+  align-items: center;
+  border-bottom: thin solid var(--color-sub);
+}
+.dialogBody p {
+  padding: 14px;
+  padding-top: 0px;
+  font-size: 0.8em;
+}
+.ctrlBtn {
+  margin-top: 14px;
+  text-align: right;
+}
+.ctrlBtn button {
+  padding: 4px;
+  width: 52px;
+  border: none;
+  border-radius: 3px;
+}
+.ctrlBtn button:last-child {
+  margin-left: 16px;
+  background-color: var(--color-primary);
+}

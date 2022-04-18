@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import Nav from '../components/nav.js';
 import styles from '../styles/vote.module.css';
 import FeedBackModal from '../modals/feedback.js';
-
+import { voteReducer, voteInitialValues } from '../store/vote.js';
+import PollItem from '../components/pollitem.js';
+import ConfirmationModal from '../modals/confirmation.js';
 const Vote = () => {
+  const [state, dispatch] = useReducer(voteReducer, voteInitialValues);
   return (
     <section>
+      <ConfirmationModal />
       {false && <FeedBackModal />}
       <Nav />
       <div>
         <section>
           <div>
-            <h2 className={styles.electiontitle}>
-              Fupre 2022 General Election
-            </h2>
+            <h2 className={styles.electiontitle}>{state.electionTitle}</h2>
             <a href="">Live polls</a>
             <div className={styles.label}>
               <div className={styles.left}></div>
@@ -24,23 +26,18 @@ const Vote = () => {
         </section>
         <section>
           <div>
-            <div className={styles.pollitem}>
-              <div className={styles.pollheader}>
-                <p>President</p>
-              </div>
-              <div className={styles.pollcandidates}>
-                <div className={styles.pollcandidateitem}>
-                  <img src="vote3.jpeg" />
-                  <div className={styles.details}>
-                    <p className={styles.candidatename}>Dominic ibolo .w</p>
-                    <p className={styles.candidatemandate}>vision 2022</p>
-                  </div>
-                  <div>
-                    <small>tap to vote</small>
-                  </div>
+            {state.polls.map((poll, i) => (
+              <div className={styles.pollitem} key={i}>
+                <div className={styles.pollheader}>
+                  <p>{poll.title}</p>
+                </div>
+                <div className={styles.pollcandidates}>
+                  {poll.candidates.map((candidate, i) => (
+                    <PollItem {...candidate} key={i} />
+                  ))}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
         <section>
