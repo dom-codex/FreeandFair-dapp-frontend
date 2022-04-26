@@ -7,16 +7,18 @@ import PollItem from '../components/pollitem.js';
 import ConfirmationModal from '../modals/confirmation.js';
 const Vote = () => {
   const [state, dispatch] = useReducer(voteReducer, voteInitialValues);
-  const [showConfirmationModal, setConfirmationModal] = useState(t);
-  const noHandler = () => {
+  const [showConfirmationModal, setConfirmationModal] = useState(fal);
+  const closeHandler = () => {
     setConfirmationModal(false);
   };
-  const yesHandler = () => {
+  const showConfirmationModalhandler = () => {
     setConfirmationModal(true);
   };
   return (
     <section>
-      {showConfirmationModal && <ConfirmationModal noHandler={noHandler} />}
+      {showConfirmationModal && (
+        <ConfirmationModal closeHandler={closeHandler} />
+      )}
       {false && <FeedBackModal />}
       <Nav />
       <div>
@@ -50,7 +52,7 @@ const Vote = () => {
         <section>
           <div className={styles.votebtn}>
             <hr />
-            <button>Vote now</button>
+            <button onClick={showConfirmationModalhandler}>Vote now</button>
           </div>
         </section>
       </div>
