@@ -1,11 +1,15 @@
 export const voteReducer = (state, action) => {
   switch (action.type) {
+    case castVote:
+      state.castedVotes[`${action.data.poll}`] = action.data.candidate;
+
     default:
       return state;
   }
 };
 export const voteInitialValues = {
   electionTitle: 'Fupre Election 2021',
+  castedVotes: {},
   polls: [
     {
       title: 'PRESIDENTIAL',
@@ -19,3 +23,4 @@ export const voteInitialValues = {
     },
   ],
 };
+export const castVote = 'CAST_VOTEs';

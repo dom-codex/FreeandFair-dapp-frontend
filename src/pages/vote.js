@@ -2,7 +2,7 @@ import React, { useReducer, useState } from 'react';
 import Nav from '../components/nav.js';
 import styles from '../styles/vote.module.css';
 import FeedBackModal from '../modals/feedback.js';
-import { voteReducer, voteInitialValues } from '../store/vote.js';
+import { voteReducer, voteInitialValues, castVote } from '../store/vote.js';
 import PollItem from '../components/pollitem.js';
 import ConfirmationModal from '../modals/confirmation.js';
 import FullScreenLoader from '../components/fullloader.js';
@@ -30,6 +30,9 @@ const Vote = () => {
       }, 5000);
     }, 5000);
   };
+  const selectCandidate = (pollIndex, candidateIndex) => {
+    dispatch({ type: castVote, data: { poll, candidate } });
+  };
   return (
     <section>
       {showConfirmationModal && (
@@ -55,14 +58,14 @@ const Vote = () => {
         </section>
         <section>
           <div>
-            {state.polls.map((poll, i) => (
-              <div className={styles.pollitem} key={i}>
+            {state.polls.map((poll, pollIndex) => (
+              <div className={styles.pollitem} key={pollIndex}>
                 <div className={styles.pollheader}>
                   <p>{poll.title}</p>
                 </div>
                 <div className={styles.pollcandidates}>
-                  {poll.candidates.map((candidate, i) => (
-                    <PollItem {...candidate} key={i} />
+                  {poll.candidates.map((candidate, candidateIndex) => (
+                    <PollItem {...candidate} key={candidateIndex} />
                   ))}
                 </div>
               </div>
