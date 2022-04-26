@@ -1,5 +1,6 @@
-import React from 'reat';
+import React from 'react';
 import Nav from '../components/nav.js';
+import styles from '../styles/livepoll.module.css';
 const LivePolls = () => {
   return (
     <section>
@@ -7,12 +8,14 @@ const LivePolls = () => {
       <div>
         <section>
           <div>
-            <h2 class="election-title">Fupre 2022 General Election</h2>
+            <h2 className={styles.electiontitle}>
+              Fupre 2022 General Election
+            </h2>
 
-            <div class="label">
-              <div class="left"></div>
+            <div className={styles.label}>
+              <div className={styles.left}></div>
               <p>Polls</p>
-              <div class="right"></div>
+              <div className={styles.right}></div>
             </div>
           </div>
         </section>
