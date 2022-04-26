@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import Nav from '../components/nav.js';
 import styles from '../styles/vote.module.css';
 import FeedBackModal from '../modals/feedback.js';
@@ -7,9 +7,16 @@ import PollItem from '../components/pollitem.js';
 import ConfirmationModal from '../modals/confirmation.js';
 const Vote = () => {
   const [state, dispatch] = useReducer(voteReducer, voteInitialValues);
+  const [showConfirmationModal, setConfirmationModal] = useState(t);
+  const noHandler = () => {
+    setConfirmationModal(false);
+  };
+  const yesHandler = () => {
+    setConfirmationModal(true);
+  };
   return (
     <section>
-      <ConfirmationModal />
+      {showConfirmationModal && <ConfirmationModal noHandler={noHandler} />}
       {false && <FeedBackModal />}
       <Nav />
       <div>

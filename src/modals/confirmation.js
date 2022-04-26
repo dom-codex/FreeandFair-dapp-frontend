@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/confirmation.module.css';
-const ConfirmationModal = ({ handler }) => {
+const ConfirmationModal = ({ noHandler, yesHandler }) => {
   return (
     <section className={styles.mainSection}>
       <div className={styles.container}>
@@ -12,8 +12,8 @@ const ConfirmationModal = ({ handler }) => {
             <p>Do you want to cast your vote(s) now? </p>
           </div>
           <div className={styles.ctrlBtn}>
-            <button>NO</button>
-            <button>YES</button>
+            <button onClick={noHandler}>NO</button>
+            <button onClick={yesHandler}>YES</button>
           </div>
         </div>
       </div>
