@@ -5,10 +5,12 @@ import FeedBackModal from '../modals/feedback.js';
 import { voteReducer, voteInitialValues } from '../store/vote.js';
 import PollItem from '../components/pollitem.js';
 import ConfirmationModal from '../modals/confirmation.js';
+import FullScreenLoader from '../components/fullloader.js';
 const Vote = () => {
   const [state, dispatch] = useReducer(voteReducer, voteInitialValues);
   const [showConfirmationModal, setConfirmationModal] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [showLoader, setLoader] = useState(false);
   const closeHandler = () => {
     setConfirmationModal(false);
   };
@@ -17,9 +19,11 @@ const Vote = () => {
   };
   const voteHandler = () => {
     setConfirmationModal(false);
+    setLoader(true);
     //SEND MESSAGE TO THE BLOCKCHAIN WITH CHOICES
     //SET LISTENER TILL BLOCK IS MINED ALREADY
     setTimeout(() => {
+      setLoader(false);
       setShowFeedback(true);
       setTimeout(() => {
         setShowFeedback(false);
@@ -35,6 +39,7 @@ const Vote = () => {
         />
       )}
       {showFeedback && <FeedBackModal />}
+      {showLoader && <FullScreenLoader />}
       <Nav />
       <div>
         <section>
