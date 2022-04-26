@@ -8,6 +8,7 @@ import ConfirmationModal from '../modals/confirmation.js';
 const Vote = () => {
   const [state, dispatch] = useReducer(voteReducer, voteInitialValues);
   const [showConfirmationModal, setConfirmationModal] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
   const closeHandler = () => {
     setConfirmationModal(false);
   };
@@ -15,7 +16,15 @@ const Vote = () => {
     setConfirmationModal(true);
   };
   const voteHandler = () => {
-    setConfirmationModal(false)
+    setConfirmationModal(false);
+    //SEND MESSAGE TO THE BLOCKCHAIN WITH CHOICES
+    //SET LISTENER TILL BLOCK IS MINED ALREADY
+    setTimeout(() => {
+      setShowFeedback(true);
+      setTimeout(() => {
+        setShowFeedback(false);
+      }, 5000);
+    }, 5000);
   };
   return (
     <section>
@@ -25,7 +34,7 @@ const Vote = () => {
           voteHandler={voteHandler}
         />
       )}
-      {false && <FeedBackModal />}
+      {showFeedback && <FeedBackModal />}
       <Nav />
       <div>
         <section>
