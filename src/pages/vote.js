@@ -31,7 +31,11 @@ const Vote = () => {
     }, 5000);
   };
   const selectCandidate = (pollIndex, candidateIndex) => {
-    dispatch({ type: castVote, data: { poll, candidate } });
+    // alert(`${pollIndex} ${candidateIndex}`);
+    dispatch({
+      type: castVote,
+      data: { poll: pollIndex, candidate: candidateIndex },
+    });
   };
   return (
     <section>
@@ -67,6 +71,9 @@ const Vote = () => {
                   {poll.candidates.map((candidate, candidateIndex) => (
                     <PollItem
                       {...candidate}
+                      data={state}
+                      pollIndex={pollIndex}
+                      candidateIndex={candidateIndex}
                       key={candidateIndex}
                       selectHandler={() =>
                         selectCandidate(pollIndex, candidateIndex)

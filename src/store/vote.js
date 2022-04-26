@@ -1,16 +1,38 @@
 export const voteReducer = (state, action) => {
   switch (action.type) {
     case castVote:
-      state.castedVotes[`${action.data.poll}`] = action.data.candidate;
-
+      //   state.castedVotes[action.data.poll] = action.data.candidate;
+      return {
+        ...state,
+        castedVotes: {
+          ...state.castedVotes,
+          [action.data.poll]: action.data.candidate,
+        },
+      };
     default:
       return state;
   }
 };
+
 export const voteInitialValues = {
   electionTitle: 'Fupre Election 2021',
   castedVotes: {},
   polls: [
+    {
+      title: 'PRESIDENTIAL',
+      candidates: [
+        {
+          name: 'Dominic ibolo .W',
+          icon: '',
+          mandate: 'together we can',
+        },
+        {
+          name: 'Dominic ibolo .W',
+          icon: '',
+          mandate: 'together we can',
+        },
+      ],
+    },
     {
       title: 'PRESIDENTIAL',
       candidates: [
