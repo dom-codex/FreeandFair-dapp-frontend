@@ -65,7 +65,13 @@ const Vote = () => {
                 </div>
                 <div className={styles.pollcandidates}>
                   {poll.candidates.map((candidate, candidateIndex) => (
-                    <PollItem {...candidate} key={candidateIndex} />
+                    <PollItem
+                      {...candidate}
+                      key={candidateIndex}
+                      selectHandler={() =>
+                        selectCandidate(pollIndex, candidateIndex)
+                      }
+                    />
                   ))}
                 </div>
               </div>
