@@ -1,4 +1,4 @@
-.election-title {
+.electiontitle {
   color: var(--color-text);
   text-align: center;
   margin-top: 12px;
@@ -30,12 +30,12 @@ a {
   margin-right: 8px;
   margin-left: 8px;
 }
-.poll-candidates {
+.pollcandidates {
   white-space: nowrap;
   overflow: scroll;
   padding: 38px 12px 12px 12px;
 }
-.poll-header {
+.pollheader {
   background-color: var(--color-bg2);
   padding: 16px 8px 16px 6px;
   font-size: 0.65em;
@@ -44,7 +44,7 @@ a {
   margin-top: 16px;
   text-align: center;
 }
-.poll-candidate-item {
+.pollcandidateitem {
   color: var(--color-text);
   border: 2px solid var(--color-bg2);
   display: inline-block;
@@ -58,7 +58,7 @@ a {
   position: relative;
   box-shadow: 0px 0px 12px var(--color-bg2);
 }
-.poll-candidate-item img {
+.pollcandidateitem img {
   height: 80px;
   width: 80px;
   padding: 4px;
@@ -72,12 +72,12 @@ a {
 .details {
   margin-top: 42px;
 }
-.candidate-name {
+.candidatename {
   font-size: 0.95em;
   color: var(--color-sub2);
   margin-bottom: 6px;
 }
-.candidate-mandate {
+.candidatemandate {
   font-size: 0.75em;
   color: var(--color-sub);
 }
@@ -98,35 +98,21 @@ small {
 .voted p {
   color: white !important;
 }
-.voted img {
-}
-.vote-btn button {
-  background-color: var(--color-primary);
-  border: none;
-  width: 150px;
-  height: 42px;
-  display: block;
-  margin: auto;
-  border-radius: 6px;
-  margin-top: 22px;
-  margin-bottom: 26px;
-}
 hr {
   border: thin solid var(--color-bg2);
   margin-top: 16px;
 }
 /*live polls */
-.live-pd p:nth-child(2) {
+.livepd p:nth-child(2) {
   margin-top: 22px;
   font-weight: bold;
 }
-.live-pd p:nth-child(3) {
+.livepd p:nth-child(3) {
   font-size: 0.7em;
   color: var(--color-sub);
 }
 /*election result*/
-.election-result {
-  display: none;
+.electionresult {
   position: fixed;
   top: 0;
   left: 0;
@@ -137,7 +123,7 @@ hr {
   z-index: 210;
   overflow: scroll;
 }
-.result-container {
+.resultcontainer {
   display: grid;
   place-content: center;
   width: 100%;
@@ -162,23 +148,23 @@ hr {
   padding-bottom: 18px;
   border-radius: 8px;
 }
-.poll-details {
+.polldetails {
   margin-top: 16px;
 }
-.poll-details p:nth-child(2) {
+.polldetails p:nth-child(2) {
   margin-top: 14px;
   font-size: 0.8em;
   color: var(--color-sub);
 }
-.poll-details p:nth-child(3) {
+.polldetails p:nth-child(3) {
   color: var(--color-sub2);
 }
-.winner-label {
+.winnerlabel {
   text-align: center;
   margin-top: 18px;
 }
 
-.close-btn {
+.closebtn {
   position: fixed;
   top: 16px;
   right: 16px;
@@ -186,11 +172,11 @@ hr {
   border: none;
   z-index: 220;
 }
-.close-btn i {
+.closebtn i {
   color: var(--color-text);
 }
 /*voted modal*/
-.voted-modal {
+.votedmodal {
   display: none;
   position: fixed;
   top: 0px;
@@ -201,14 +187,14 @@ hr {
   backdrop-filter: blur(5px);
   z-index: 230;
 }
-.voted-container {
+.votedcontainer {
   display: grid;
   place-content: center;
   width: 100%;
   height: 100%;
   text-align: center;
 }
-.modal-contents {
+.modalcontents {
   width: 320px;
   background-color: rgba(0, 0, 0, 0.65);
   min-height: 280px;
@@ -216,17 +202,17 @@ hr {
   padding-bottom: 24px;
   border-radius: 8px;
 }
-.confirmation-img {
+.confirmationimg {
   text-align: center;
 }
-.confirmation-img i {
+.confirmationimg i {
   font-size: 46px;
   color: var(--color-primary);
 }
-.modal-details p:nth-child(1) {
+.modaldetails p:nth-child(1) {
   font-size: 1.5em;
 }
-.modal-details p:nth-child(2) {
+.modaldetails p:nth-child(2) {
   font-size: 0.75em;
 }
 .livepbtn {
