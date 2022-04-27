@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from '../styles/livepoll.module.css';
-const ElectionResult = () => {
+import FullScreenLoader from '../components/fu';
+const ElectionResult = ({ data, dispatch }) => {
   return (
     <section className={styles.electionresult}>
+      {false && <FullScreenLoader />}
       <div className={styles.resultcontainer}>
         <div className={styles.results}>
           <h2 className={styles.winnerlabel}>Winners</h2>

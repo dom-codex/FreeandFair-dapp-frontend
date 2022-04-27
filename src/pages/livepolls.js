@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import Nav from '../components/nav.js';
 import styles from '../styles/livepoll.module.css';
 import ElectionResult from '../components/electionresult.js';
+import { livePollReducer, initialData } from '../store/livepolls.js';
 const LivePolls = () => {
+  const [state, dispatch] = useReducer(livePollReducer, initialData);
   return (
     <section>
-      <ElectionResult />
+      {false && <ElectionResult />}
       <Nav />
       <div>
         <section>
