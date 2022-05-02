@@ -9,7 +9,7 @@ const styles = {
     height: '100%',
     backgroundColor: 'rgba(0,0,0,0.5)',
     backdropFilter: 'blur(3px)',
-    zIndex: 10,
+    zIndex: 1000,
   },
   container: {
     width: '100%',

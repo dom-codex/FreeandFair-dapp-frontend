@@ -28,6 +28,8 @@ export const initialData = {
       },
     },
   ],
+  showResult: t,
+  loading: false,
 };
 export const setLivePoll = 'SET_LIVE_POLL';
 export const setResult = 'SET_ELECTION_RESULT';

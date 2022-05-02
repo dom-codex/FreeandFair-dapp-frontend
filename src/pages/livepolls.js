@@ -3,11 +3,13 @@ import Nav from '../components/nav.js';
 import styles from '../styles/livepoll.module.css';
 import ElectionResult from '../components/electionresult.js';
 import { livePollReducer, initialData } from '../store/livepolls.js';
+import FullScreenLoader from '../components/fullloader.js';
 const LivePolls = () => {
   const [state, dispatch] = useReducer(livePollReducer, initialData);
   return (
     <section>
-      {false && <ElectionResult />}
+      {state.showResult && <ElectionResult />}
+      {state.loading && <FullScreenLoader />}
       <Nav />
       <div>
         <section>
