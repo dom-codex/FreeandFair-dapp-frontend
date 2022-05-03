@@ -23,9 +23,11 @@ const ElectionResult = ({ data, dispatch }) => {
           </div>
         </div>
       </div>
-      <button className={styles.closebtn}>
-        <i class="material-icons">cancel</i>
-      </button>
+      {false && (
+        <button className={styles.closebtn}>
+          <i class="material-icons">cancel</i>
+        </button>
+      )}
     </section>
   );
 };

@@ -28,7 +28,7 @@ export const initialData = {
       },
     },
   ],
-  showResult: t,
+  showResult: false,
   loading: false,
 };
 export const setLivePoll = 'SET_LIVE_POLL';
