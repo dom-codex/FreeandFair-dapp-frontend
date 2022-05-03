@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from '../styles/vote.module.css';
 const selectStyle = {
-  backgroundColor: 'var(--color-primary)',
+  backgroundColor: 'rgba(211,77,128,0.5',
+  // backdropFilter: 'blur(6px)',
+  boxShadow: 'none',
+  border: 'none',
 };
 const PollItem = ({
   name,
