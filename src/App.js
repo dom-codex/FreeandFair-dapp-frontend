@@ -11,7 +11,7 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, initialData);
   return (
     <AppContext.Provider value={{ dispatch, state }}>
-      <Vote />
+      <LivePolls />
     </AppContext.Provider>
   );
 }

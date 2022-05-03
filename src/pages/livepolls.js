@@ -7,6 +7,7 @@ import FullScreenLoader from '../components/fullloader.js';
 const LivePolls = () => {
   const [state, dispatch] = useReducer(livePollReducer, initialData);
   return (
+    //ADD DYNAMIC DATA LOA
     <section>
       {state.showResult && <ElectionResult />}
       {state.loading && <FullScreenLoader />}
