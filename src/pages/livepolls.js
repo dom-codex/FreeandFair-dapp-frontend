@@ -28,21 +28,9 @@ const LivePolls = () => {
         </section>
         <section>
           <div>
-            <div className={styles.pollitem}>
-              <div className={styles.pollheader}>
-                <p>President</p>
-              </div>
-              <div className={styles.pollcandidates}>
-                <div className={styles.pollcandidateitem}>
-                  <img src="vote3.jpeg" />
-                  <div className={`${styles.details} ${styles.livepd}`}>
-                    <p className={styles.candidatename}>Dominic ibolo .w</p>
-                    <p className={styles.candidatevotes}>23,000</p>
-                    <p>votes</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {state.polls.map((poll, i) => (
+              <PollItem poll={poll} pos={i} />
+            ))}
           </div>
         </section>
       </div>
@@ -50,3 +38,24 @@ const LivePolls = () => {
   );
 };
 export default LivePolls;
+const PollItem = ({ poll, pos }) => {
+  return (
+    <div className={styles.pollitem}>
+      <div className={styles.pollheader}>
+        <p>{poll.title}</p>
+      </div>
+      <div className={styles.pollcandidates}>
+        {poll.candidates.map((candidate, i) => (
+          <div className={styles.pollcandidateitem}>
+            <img src={''} />
+            <div className={`${styles.details} ${styles.livepd}`}>
+              <p className={styles.candidatename}>{candidate.name}</p>
+              <p className={styles.candidatevotes}>{candidate.votes}</p>
+              <p>votes</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};

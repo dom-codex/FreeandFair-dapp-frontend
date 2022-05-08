@@ -11,7 +11,7 @@ export const initialData = {
       candidates: [
         {
           name: 'Dominic',
-          icon: '',
+          icon: 'xml',
 
           votes: 2492953,
         },
