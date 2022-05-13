@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react';
+import {Route} from "wouter"
 import Home from './pages/home.js';
 import Election from './pages/election.js';
 import Electorate from './pages/electorate.js';
@@ -11,7 +12,9 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, initialData);
   return (
     <AppContext.Provider value={{ dispatch, state }}>
-      <LivePolls />
+      <Route path={"/"}>
+        {()=><Home/}
+      </Route>
     </AppContext.Provider>
   );
 }
