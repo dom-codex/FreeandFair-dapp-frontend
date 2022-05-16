@@ -13,8 +13,20 @@ export default function App() {
   return (
     <AppContext.Provider value={{ dispatch, state }}>
       <Route path={"/"}>
-        {()=><Home/}
+        {()=><Home/>}
       </Route>
+      <Route path={"/electorate"}>
+        {()=><Electorate/>}
+        </Route>
+        <Route path={"/election"}>
+          {()=><Election/>}
+          </Route>
+          <Route path={"/livepoll"}>
+            {()=><LivePolls/>}
+            </Route>
+            <Route path={"/vote"}>
+              {()=><Vote/>}
+              </Route>
     </AppContext.Provider>
   );
 }
